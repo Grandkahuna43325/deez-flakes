@@ -11,7 +11,7 @@
     # nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -23,7 +23,7 @@
           inherit system;
           modules = [ 
             ./configuration.nix
-            nixos-hardware.nixosModules.microsoft-surface-surface-pro-intel
+            nixos-hardware.nixosModules.microsoft-surface-pro-intel
           ];
         };
       };
