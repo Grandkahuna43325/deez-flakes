@@ -31,7 +31,7 @@ done
 
 
 echo "installng flakes"
-home-manager switch --flake . && sudo nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake . && home-manager switch --flake . 
 
 
 
