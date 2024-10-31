@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "change hypr nvim zellij p10k and zshrc?"
+echo "change hypr nvim zellij p10k zshrc waybar oh-my-zsh?"
 echo "y/n"
 read -r $REPLY
 
@@ -11,13 +11,13 @@ do
     mv ~/.config/hypr ~/.config/bak
     mv ~/.config/nvim ~/.config/bak
     mv ~/.config/zellij ~/.config/bak
+    mv ~/.config/waybar ~/.config/bak
     mv ~/.p10k.zsh ~/.config/bak
     mv ~/.zshrc ~/.config/bak
 
     #copy config files that aren't managed by home-manger(you crazy if you think I'll manage EVERYTHING)
     cp -r ./config/nix/* ~/.config/
     cp ./config/.p10k.zsh ~
-    cp ./config/.zshrc ~
 
     git clone https://github.com/Grandkahuna43325/Neovim_config ~/.config/nvim
 
