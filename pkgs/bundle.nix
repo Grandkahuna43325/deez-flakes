@@ -10,5 +10,6 @@
     ./games.nix
     ./qt-browser.nix
     ./pass.nix
+    ./obs.nix
   ];
 }

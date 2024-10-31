@@ -17,6 +17,7 @@
     fzf
     ranger
     nix-prefetch
+    bottom
 
     #separate config
     zellij
