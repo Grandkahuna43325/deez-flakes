@@ -169,6 +169,7 @@
   ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   #NVIDIA
@@ -216,6 +217,8 @@
 >>>>>>> 37de022 (first commit)
 
 >>>>>>> 697be02 (first commit)
+=======
+>>>>>>> 25c3718 (hotfixes!)
   programs.hyprland = {
     # Install the packages from nixpkgs
     enable = true;
