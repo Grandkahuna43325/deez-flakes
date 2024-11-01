@@ -51,6 +51,7 @@
       man = "colored man";
       ld = "exa --all --tree --level=2 --long --inode";
       ls = "exa --all --long --inode  --ignore-glob='.git*'";
+      z = "cd";
     };
     plugins = [
       {
