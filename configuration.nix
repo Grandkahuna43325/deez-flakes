@@ -170,8 +170,6 @@
     "*"
   ];
 
-<<<<<<< HEAD
-=======
 
   #NVIDIA
   # Enable OpenGL
@@ -179,7 +177,6 @@
   #   enable = true;
   # };
 
->>>>>>> a664f90 (first laptop commit)
   programs.hyprland = {
     # Install the packages from nixpkgs
     enable = true;
