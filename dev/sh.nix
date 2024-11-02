@@ -17,6 +17,7 @@
     fzf
     ranger
     nix-prefetch
+    carapace
     bottom
 
     #separate config
@@ -34,7 +35,7 @@
   programs.zoxide.enableZshIntegration = true;
 
 
-  # Disabling zhs to manage it from ~/.zshrc and not home-manager
+  programs.carapace.enable = true;
   programs.zsh = {
     enable = true;
     envExtra = "
