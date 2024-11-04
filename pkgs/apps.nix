@@ -8,6 +8,9 @@
     pavucontrol
     mpv
     yt-dlp
+    xournalpp
+    # required by xournalpp 
+    gnome.adwaita-icon-theme
   ];
 
   programs.git = {

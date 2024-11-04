@@ -12,6 +12,7 @@ do
     mv ~/.config/nvim ~/.config/bak
     mv ~/.config/zellij ~/.config/bak
     mv ~/.config/waybar ~/.config/bak
+    mv ~/.config/xournalpp ~/.config/bak
     mv ~/.p10k.zsh ~/.config/bak
     mv ~/.zshrc ~/.config/bak
 

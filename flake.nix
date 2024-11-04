@@ -23,15 +23,7 @@
           inherit system;
           modules = [ 
             ./configuration.nix
-<<<<<<< HEAD
-<<<<<<< HEAD
             nixos-hardware.nixosModules.microsoft-surface-pro-intel
-=======
-            nixos-hardware.nixosModules.microsoft-surface-surface-pro-intel
->>>>>>> a664f90 (first laptop commit)
-=======
-            nixos-hardware.nixosModules.microsoft-surface-surface-pro-intel
->>>>>>> d9a8f09 (first laptop commit)
           ];
         };
       };
