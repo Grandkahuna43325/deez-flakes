@@ -4,12 +4,13 @@
   home.packages = with pkgs; [
     gh
     git
-    vesktop
+    webcord-vencord
     pavucontrol
     mpv
     yt-dlp
   ];
 
+  programs.gh.enable = true;
   programs.git = {
     enable = true;
     userName = "Grandkahuna43325";
