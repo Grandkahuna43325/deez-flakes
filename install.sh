@@ -32,7 +32,7 @@ done
 
 
 echo "installng flakes"
-sudo nixos-rebuild switch --flake . && home-manager switch --flake . 
+sudo nixos-rebuild switch --flake . && home-manager switch --flake .
 
 
 
@@ -46,6 +46,27 @@ while :
 do
   if [[ $REPLY == "y" ]]; then
     rm -fr ~/.config/bak
+    break
+  elif [[ $REPLY == "n" ]]; then
+    break
+  else
+    echo u stupid? 'y' or 'n' ONLY
+  fi
+done
+
+
+# BUGFIX
+# something something kde can't decrypt
+echo "Apply bugfix?"
+echo "Only on first run"
+echo "y/n"
+read -r $REPLY
+
+while :
+do
+  if [[ $REPLY == "y" ]]; then
+    echo 'pinentry-program /home/grandkahuna43325/.nix-profile/bin/pinentry-curses' > ~/.gnupg/gpg-agent.conf
+    rustup default stable
     break
   elif [[ $REPLY == "n" ]]; then
     break

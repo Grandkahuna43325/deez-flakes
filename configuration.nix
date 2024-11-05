@@ -140,7 +140,7 @@
     settings = {
       PasswordAuthentication = true;
       AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
-        UseDns = true;
+      UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
@@ -151,7 +151,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 443 8081 ];  # Allow HTTP and HTTPS
+  networking.firewall.allowedTCPPorts = [ 80 443 8081 ]; # Allow HTTP and HTTPS
   networking.firewall.allowedUDPPorts = [ 8081 ];
 
   # This value determines the NixOS release from which the default
