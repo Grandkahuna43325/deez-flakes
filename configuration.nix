@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, pkgsUnstable, ... }:
 
 {
   imports =
@@ -10,6 +10,11 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+  # make unstable available
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
 
 
   # Bootloader.
@@ -105,7 +110,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
+    pkgsUnstable.neovim
     git
     wget
     alacritty
