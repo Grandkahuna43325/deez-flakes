@@ -34,6 +34,9 @@
   boot.kernelModules = [
     "v4l2loopback"
   ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="My OBS Virt Cam" exclusive_caps=1
+  '';
   security.polkit.enable = true;
 
   # Bootloader.
@@ -68,12 +71,14 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
+  # Enable the X11 windowing system (as fallback).
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -89,24 +94,31 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
-  users.extraUsers.grandkahuna43325.extraGroups = [ "audio" ];
-  hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
-
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = false;
-    alsa.enable = false;
-    alsa.support32Bit = false;
-    pulse.enable = false;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    # If you want to use JACK applications, uncomment this
+    jack.enable = true;
   };
+
+  # Enable XDG Desktop Portal and required backends
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal
+    ];
+  };
+
+  users.extraUsers.grandkahuna43325.extraGroups = [ "audio" ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -190,7 +202,8 @@
 
 
   nix.settings.trusted-users = [
-    "*"
+    "root"
+    "grandkahuna43325"
   ];
 
 

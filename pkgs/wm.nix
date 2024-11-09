@@ -4,7 +4,8 @@
   home.packages = with pkgs; [
     xclip
     wl-clipboard
-    xdg-desktop-portal-hyprland
+    grim
+    slurp
     wofi
     picom
     dunst
