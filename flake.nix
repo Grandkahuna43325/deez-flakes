@@ -18,13 +18,14 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgsUnstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
           modules = [ ./configuration.nix ];
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs pkgsUnstable; };
         };
       };
       homeConfigurations = {

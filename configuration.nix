@@ -9,13 +9,32 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      (import "${pkgsUnstable.path}/nixos/modules/programs/obs-studio.nix")
     ];
-  # make unstable available
-  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    inherit (config.nixpkgs) config;
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      obs-studio = pkgsUnstable.obs-studio;
+    })
+  ];
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      # obs-ndi
+      obs-teleport
+      droidcam-obs
+      wlrobs
+    ];
   };
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.kernelModules = [
+    "v4l2loopback"
+  ];
+  security.polkit.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -117,6 +136,7 @@
     unzip
     steam
     pinentry-curses
+    xwaylandvideobridge
   ];
 
   programs.steam = {
@@ -154,7 +174,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 443 8081 ];  # Allow HTTP and HTTPS
+  networking.firewall.allowedTCPPorts = [ 80 443 8081 ]; # Allow HTTP and HTTPS
   networking.firewall.allowedUDPPorts = [ 8081 ];
 
   # This value determines the NixOS release from which the default
@@ -220,6 +240,15 @@
       openSha256 = "sha256-wvRdHguGLxS0mR06P5Qi++pDJBCF8pJ8hr4T8O6TJIo=";
       settingsSha256 = "sha256-9wqoDEWY4I7weWW05F4igj1Gj9wjHsREFMztfEmqm10=";
       persistencedSha256 = "sha256-d0Q3Lk80JqkS1B54Mahu2yY/WocOqFFbZVBh+ToGhaE=";
+    };
+  };
+
+  systemd.services."xwaylandvideobridge" = {
+    description = "XWayland Video Bridge Service";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.xwaylandvideobridge}/bin/xwaylandvideobridge";
+      user = "grandkahuna43325";
     };
   };
 

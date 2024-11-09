@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     gh
     git
-    webcord-vencord
+    webcord
     pavucontrol
     mpv
     yt-dlp
