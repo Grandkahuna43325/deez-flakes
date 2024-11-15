@@ -19,6 +19,7 @@
     nix-prefetch
     carapace
     bottom
+    httpie
 
     #separate config
     zellij

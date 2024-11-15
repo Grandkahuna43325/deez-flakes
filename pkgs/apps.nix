@@ -5,6 +5,7 @@
     gh
     git
     webcord
+    vesktop
     pavucontrol
     mpv
     yt-dlp
