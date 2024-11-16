@@ -28,6 +28,12 @@
     alacritty
   ];
 
+  programs.ssh.matchBlocks = {
+    "*.kfkorulczyk.pl" = {
+      proxyCommand = "ProxyCommand /run/current-system/sw/bin/cloudflared access ssh --hostname %h";
+    };
+  };
+
   programs.zoxide.options = [
     "--cmd cd"
   ];
