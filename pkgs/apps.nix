@@ -1,4 +1,4 @@
-{configs, pkgs, ...}:
+{configs, pkgs, pkgs-unstable, ...}:
 
 {
   home.packages = with pkgs; [
@@ -8,7 +8,8 @@
     pavucontrol
     mpv
     yt-dlp
-    xournalpp
+    pkgs-unstable.xournalpp
+    pkgs-unstable.figma-linux
     # required by xournalpp 
     gnome.adwaita-icon-theme
   ];
