@@ -1,4 +1,4 @@
-{configs, pkgs, ...}:
+{configs, pkgs, pkgs-unstable, ...}:
 
 {
   home.packages = with pkgs; [
@@ -9,6 +9,7 @@
     pavucontrol
     mpv
     yt-dlp
+    pkgs-unstable.figma-linux
   ];
 
   programs.gh.enable = true;

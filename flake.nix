@@ -32,6 +32,9 @@
         grandkahuna43325 = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
+          extraSpecialArgs = {
+            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+          };
         };
       };
 
