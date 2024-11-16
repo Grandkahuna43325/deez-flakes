@@ -12,6 +12,7 @@
       obs-pipewire-audio-capture
       # obs-ndi
       obs-teleport
+      wlrobs
     ];
   };
 }

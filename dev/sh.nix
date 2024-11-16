@@ -19,6 +19,7 @@
     nix-prefetch
     carapace
     bottom
+    httpie
 
     #separate config
     zellij
@@ -26,6 +27,12 @@
     oh-my-zsh
     alacritty
   ];
+
+  programs.ssh.matchBlocks = {
+    "*.kfkorulczyk.pl" = {
+      proxyCommand = "ProxyCommand /run/current-system/sw/bin/cloudflared access ssh --hostname %h";
+    };
+  };
 
   programs.zoxide.options = [
     "--cmd cd"
