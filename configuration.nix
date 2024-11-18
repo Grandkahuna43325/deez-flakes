@@ -161,6 +161,7 @@
     steam
     pinentry-curses
     xwaylandvideobridge
+    wireguard-tools
   ];
 
   programs.steam = {
@@ -212,6 +213,23 @@
       8081
     ];
   };
+
+  # Wireguard configuration
+  # networking.wg-quick.interfaces = {
+  #   wg0 = {
+  #     address = [ "10.0.0.2/24" ];
+  #     privateKey = "/home/grandkahuna43325/wireguard-keys/private";  # Replace with your actual private key
+  #     
+  #     peers = [
+  #       {
+  #         publicKey = "/home/grandkahuna43325/wireguard-keys/server-public";  # Replace with actual server public key
+  #         allowedIPs = [ "10.0.0.1/32" ];
+  #         endpoint = "192.168.88.67:51820";  # Replace with actual server IP/hostname
+  #         persistentKeepalive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
