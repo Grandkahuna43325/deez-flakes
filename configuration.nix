@@ -116,6 +116,7 @@
     alacritty
     unzip
     pinentry-curses
+    weylus
   ];
 
   # something something gnupg
@@ -194,4 +195,10 @@
   environment.variables.EDITOR = "nvim";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.nix-ld.enable = true;
+
+  programs.weylus = {
+    enable = true;
+    users = [ "grandkahuna43325" ];
+    openFirewall = true;
+  };
 }
