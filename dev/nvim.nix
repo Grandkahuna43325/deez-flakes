@@ -12,6 +12,7 @@
     lua
     luajitPackages.luarocks
     luajitPackages.jsregexp
+    gdb
   ];
 
   home.sessionVariables = {

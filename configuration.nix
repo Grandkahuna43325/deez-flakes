@@ -98,7 +98,7 @@
     description = "Grandkahuna43325";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
+      # kdePackages.kate
       #  thunderbird
     ];
   };
@@ -117,7 +117,16 @@
     unzip
     pinentry-curses
     weylus
+    # cloudflare-warp
+    # cloudflared
   ];
+
+  # systemd.packages = [ pkgs.cloudflare-warp ]; # for warp-cli
+  # systemd.targets.multi-user.wants = [ "warp-svc.service" ]; # causes warp-svc to be started automatically
+
+  # services.openvpn.servers = {
+  #   homeVPN = { config = '' config /home/grandkahuna43325/.config/openvpn/home.conf ''; };
+  # };
 
   # something something gnupg
   services.pcscd.enable = true;
@@ -157,8 +166,15 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 443 8081 ]; # Allow HTTP and HTTPS
+  networking.firewall.allowedTCPPorts = [ 80 443 8081 ]; # Allow HTTP, HTTPS and OBS Teleport
   networking.firewall.allowedUDPPorts = [ 8081 ];
+  # Allow OBS Teleport traffic through the firewall
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 8081; to = 8081; }
+  ];
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 8081; to = 8081; }
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -166,7 +182,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 
   # __________________________
@@ -183,12 +199,45 @@
   #   enable = true;
   # };
 
+# i3
+  services.xserver = {
+    desktopManager = {
+      xterm.enable = false;
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu #application launcher most people use
+          i3status # gives you the default i3 status bar
+          i3lock #default i3 screen locker
+          i3blocks #if you are planning on using i3blocks over i3status
+          picom
+          polybar
+          rofi
+      ];
+    };
+  };
+
   programs.hyprland = {
     # Install the packages from nixpkgs
     enable = true;
     # Whether to enable XWayland
     xwayland.enable = true;
   };
+
+  # services.cloudflare-warp.enable = true;
+  #   services.cloudflare-warp = {
+  #   enable = true;
+  #
+  #   # @TODO - Need a better way to handle this
+  #   certificate = "/home/grandkahuna43325/.config/cloudflare/warp/cert/Cloudflare_CA.crt";
+  # };
+
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;

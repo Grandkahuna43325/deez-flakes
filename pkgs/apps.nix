@@ -8,6 +8,10 @@
     pavucontrol
     mpv
     yt-dlp
+    libreoffice-qt
+    gimp
+    inkscape
+    ddccontrol
     pkgs-unstable.xournalpp
     pkgs-unstable.figma-linux
     # required by xournalpp 
