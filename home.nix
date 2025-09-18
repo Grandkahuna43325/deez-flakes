@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable,  ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
 
@@ -7,8 +7,11 @@
     ./pkgs/bundle.nix
   ];
 
+
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.hack
   ];
 
   home.username = "grandkahuna43325";

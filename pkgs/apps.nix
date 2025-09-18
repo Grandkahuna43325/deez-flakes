@@ -15,7 +15,7 @@
     pkgs-unstable.xournalpp
     pkgs-unstable.figma-linux
     # required by xournalpp 
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   programs.gh.enable = true;
