@@ -22,7 +22,7 @@
 # "~/.config/alacritty/keybindings.toml",
 # ]
 
-import = [
+general.import = [
     # "~/.config/alacritty/themes/themes/ayu_dark.toml",
     # "~/.config/alacritty/themes/themes/catppuccin_mocha.toml",
     "~/.config/alacritty/themes/themes/github_dark_high_contrast.toml",
@@ -33,7 +33,7 @@ import = [
 # Live config reload (changes require restart)
 # Default: true
 
-live_config_reload = true
+general.live_config_reload = true
 
 # ipc_socket = true | false # (unix only)
 # Offer IPC using alacritty msg
@@ -60,7 +60,7 @@ live_config_reload = true
 # program = "/bin/zsh"
 # args = ["-l"]
 
-[shell]
+[terminal.shell]
 program = "/home/grandkahuna43325/.nix-profile/bin/zsh"
 args = ["-l"]
 
@@ -178,8 +178,8 @@ title = "Alacritty"
 dynamic_title = true 
 decorations_theme_variant = "None"
 decorations = "Full"
-opacity = 0.4
-blur = false 
+opacity = 0.85
+blur = false
 
 
 # SCROLLING
@@ -247,9 +247,13 @@ builtin_box_drawing = true
 # colors primary
 # This section documents the [colors.primary] table of the configuration file.
 
+[colors.primary]
+background = "#000000"
+
+
 [colors]
 #foreground = "#d8d8d8"
-#background = "#181818"
+# background = "#181818"
 #dim_foreground = "#828482"
 #bright_foreground = "None"
 #cursor = { text = "CellBackground", cursor = "CellForeground" }
@@ -890,6 +894,11 @@ hide_when_typing = false
 # ]
 
 #[keyboard]
+
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u0017"
 
 
 # DEBUG
