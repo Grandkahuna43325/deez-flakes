@@ -2,9 +2,10 @@
   description = "Grandkahuna's config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
+    catppuccin.url = "github:catppuccin/nix/6247b46";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
@@ -13,25 +14,46 @@
     # nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, catppuccin, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgsUnstable = nixpkgs-unstable.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [
+            ./configuration.nix
+            # { nixpkgs.config.allowUnfree = true; }
+          ];
+          specialArgs = { inherit inputs pkgsUnstable; };
+        };
+        grandkahuna43325 = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./configuration.nix
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+          ];
           specialArgs = { inherit inputs pkgsUnstable; };
         };
       };
       homeConfigurations = {
         grandkahuna43325 = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home.nix ];
+          pkgs = nixpkgs.legacyPackages.${system}; # Ensure `pkgs` is properly set
+          modules = [
+            ./home.nix
+            catppuccin.homeModules.catppuccin
+          ];
           extraSpecialArgs = {
             pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };

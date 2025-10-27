@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable,  ... }:
+{ config, pkgs, pkgs-unstable, catppuccin, ... }:
 
 {
 
@@ -7,8 +7,10 @@
     ./pkgs/bundle.nix
   ];
 
-  home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+  fonts.fontconfig.enable = true;
+  home.packages = [
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.hack
   ];
 
   home.username = "grandkahuna43325";
@@ -32,7 +34,12 @@
   #
   #  /etc/profiles/per-user/grandkahuna43325/etc/profile.d/hm-session-vars.sh
   #
+  catppuccin = {
+    flavor = "mocha";
+    enable = true;
+  };
+  programs.element-desktop.enable = true;
 
   programs.home-manager.enable = true;
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 }
