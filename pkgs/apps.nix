@@ -4,12 +4,20 @@
   home.packages = with pkgs; [
     gh
     git
-    webcord
-    vesktop
     pavucontrol
     mpv
     yt-dlp
+    qbittorrent
+    libreoffice
+    # gimp
+    inkscape
+    vlc
+    chromium
+    xournalpp
+    drawio
+    pkgs-unstable.vesktop
     pkgs-unstable.figma-linux
+    pkgs-unstable.gimp3
   ];
 
   programs.gh.enable = true;

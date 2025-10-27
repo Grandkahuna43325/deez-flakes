@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   home.packages = with pkgs; [
@@ -20,6 +20,8 @@
     carapace
     bottom
     httpie
+    trash-cli
+    pkgs-unstable.posting
 
     #separate config
     zellij
@@ -45,12 +47,17 @@
   programs.carapace.enable = true;
   programs.zsh = {
     enable = true;
-    envExtra = "
+    initContent = ''
+      export MANPAGER="nvim +Man!"
+      export MANWIDTH=999
+    '';
+    envExtra = ''
       source ~/.env
       source ~/.p10k.zsh
-    ";
+    '';
     shellAliases = {
-      e = "find_edit_file";
+      q = "exit";
+      e = "cd";
       gp = "git pull";
       cat = "bat";
       ff = "fastfetch";
@@ -60,6 +67,7 @@
       ld = "exa --all --tree --level=2 --long --inode";
       ls = "exa --all --long --inode  --ignore-glob='.git*'";
       z = "cd";
+      rm = "trash-put";
     };
     plugins = [
       {

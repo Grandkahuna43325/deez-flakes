@@ -12,12 +12,14 @@ do
     mv ~/.config/nvim ~/.config/bak
     mv ~/.config/zellij ~/.config/bak
     mv ~/.config/waybar ~/.config/bak
+    mv ~/.config/scripts ~/.config/bak
     mv ~/.p10k.zsh ~/.config/bak
     mv ~/.zshrc ~/.config/bak
 
     #copy config files that aren't managed by home-manger(you crazy if you think I'll manage EVERYTHING)
     cp -r ./config/nix/* ~/.config/
     cp ./config/.p10k.zsh ~
+    chmod +x ~/.config/scripts/*
 
     git clone https://github.com/Grandkahuna43325/Neovim_config ~/.config/nvim
 

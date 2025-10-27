@@ -95,7 +95,9 @@
       preload =
         [ "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg" "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg" ];
       wallpaper = [
-        "DP-2,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
+        "DP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
+        "DP-3,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
+        "eDP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
         "HDMI-A-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg"
       ];
     };
