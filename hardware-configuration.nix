@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" ];
@@ -15,19 +16,29 @@
   boot.kernelParams = [ "initcall_blacklist=simpledrm_platform_driver_init" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/fb57b8f3-7784-4a23-8631-7c5cbfd5a2f5";
+    {
+      device = "/dev/disk/by-uuid/fb57b8f3-7784-4a23-8631-7c5cbfd5a2f5";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9A07-FCAC";
+    {
+      device = "/dev/disk/by-uuid/9A07-FCAC";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/home/grandkahuna43325/Games" = {
+    device = "/dev/disk/by-label/games";
+    fsType = "ext4";
+    options = [ "nofail" "x-systemd.device-timeout=1s" ];
+  };
+
+
+
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/2d544d40-5ae5-4124-b932-eb409a26b6d7"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/2d544d40-5ae5-4124-b932-eb409a26b6d7"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
