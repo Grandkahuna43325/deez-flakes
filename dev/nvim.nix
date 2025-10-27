@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   home.packages = with pkgs; [
     nixpkgs-fmt
     nil
-    nodejs
+    pkgs-unstable.nodejs
     go
     fd
     jq
@@ -14,9 +14,16 @@
     lua
     luajitPackages.luarocks
     luajitPackages.jsregexp
+    sqlite
+    lldb_17
+    jdk
+    jdt-language-server
+    typescript
+    python314
+    gradle
   ];
 
   home.sessionVariables = {
-     EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 }

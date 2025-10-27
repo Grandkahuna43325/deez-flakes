@@ -4,7 +4,8 @@
   home.packages = with pkgs; [
     gnumake
     rustup
-    cargo-tauri
+    maven
+    # cargo-tauri
     gcc
   ];
 
