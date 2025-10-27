@@ -1,0 +1,40 @@
+0000000000000000000000000000000000000000 068f6e7efcc32df1dc2e106eb93271b5e996442e Grandkahuna43325 <kf.korulczyk@gmail.com> 1728938630 +0200	clone: from https://github.com/Grandkahuna43325/deez-flakes
+068f6e7efcc32df1dc2e106eb93271b5e996442e 0880e01d46a9a4c75d8d3fc038705f3b770eb3a4 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730095753 +0100	commit: First commit!!
+0880e01d46a9a4c75d8d3fc038705f3b770eb3a4 9cd4e932be0c86bab318484c38fe958d48d2fbba Grandkahuna43325 <kf.korulczyk@gmail.com> 1730379238 +0100	commit: new packages
+9cd4e932be0c86bab318484c38fe958d48d2fbba ad2ab077c3712ab3723bb3c4328c58a071a67282 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730411216 +0100	commit: moved zshrc to home-manager & added waybar
+ad2ab077c3712ab3723bb3c4328c58a071a67282 16afa6f5cab3df507610984ad1d561a9d5e24a05 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730486892 +0100	commit: changes in shell and changed obs-ndi to teleport
+16afa6f5cab3df507610984ad1d561a9d5e24a05 c40717c23ade3530fffd029003f38e735453b662 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730548590 +0100	commit: downgraded nvidia drivers for minecraft compatibility :3
+c40717c23ade3530fffd029003f38e735453b662 72fddf59473f6fc1cbc4c630e9c4919e3d52aed5 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730548632 +0100	commit: make autocompletions pretty again!
+72fddf59473f6fc1cbc4c630e9c4919e3d52aed5 da497e876c94a14d6bb26da8df63a32c0afc2a54 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730548657 +0100	commit: changed mc laucher
+da497e876c94a14d6bb26da8df63a32c0afc2a54 bbdbd3b891db7520e68fb796df777e0759a037cd Grandkahuna43325 <kf.korulczyk@gmail.com> 1730820215 +0100	commit: changed minecraft launcher
+bbdbd3b891db7520e68fb796df777e0759a037cd 9001afc32953aab05db80ccf40f671389c862c4f Grandkahuna43325 <kf.korulczyk@gmail.com> 1730843272 +0100	cherry-pick: wofi-pass in hyprland!!
+9001afc32953aab05db80ccf40f671389c862c4f d728a80b4304c8de6262a9253e60afd9109590bf Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931088 +0100	pull: Fast-forward
+d728a80b4304c8de6262a9253e60afd9109590bf 9001afc32953aab05db80ccf40f671389c862c4f Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931182 +0100	reset: moving to HEAD~1
+9001afc32953aab05db80ccf40f671389c862c4f d728a80b4304c8de6262a9253e60afd9109590bf Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931217 +0100	pull: Fast-forward
+d728a80b4304c8de6262a9253e60afd9109590bf 9001afc32953aab05db80ccf40f671389c862c4f Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931316 +0100	reset: moving to HEAD~1
+9001afc32953aab05db80ccf40f671389c862c4f bad6696374449fb3a29fb09f32bb0a7399147645 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931410 +0100	commit (cherry-pick): unstable packages in main conifg
+bad6696374449fb3a29fb09f32bb0a7399147645 b89aa50409c268061c189b01add2d3047260b3fb Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931487 +0100	rebase (finish): refs/heads/main onto d728a80b4304c8de6262a9253e60afd9109590bf
+b89aa50409c268061c189b01add2d3047260b3fb e2017b071a7ae75939357b312000c1bc9a9ddbd4 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931637 +0100	commit (amend): quickfix to previous commit!!
+e2017b071a7ae75939357b312000c1bc9a9ddbd4 386c253102b5e9a5db69eb83d8edd2f0d0bacf3e Grandkahuna43325 <kf.korulczyk@gmail.com> 1731177922 +0100	commit: bugfixes: obs & discord screen sharing works!
+386c253102b5e9a5db69eb83d8edd2f0d0bacf3e dbac7508a5e4f42060605f6c2b87ec712117dd46 Grandkahuna43325 <kf.korulczyk@gmail.com> 1731178447 +0100	commit: added xdg-portals, security changes, switched to pipewire
+dbac7508a5e4f42060605f6c2b87ec712117dd46 0b1f127012e88b0cdc14c571c3187dc6d84a55ab Grandkahuna43325 <kf.korulczyk@gmail.com> 1731183209 +0100	commit: bugfix
+0b1f127012e88b0cdc14c571c3187dc6d84a55ab 9878556eb734db88a67ba187170149afc7b98e91 Grandkahuna43325 <kf.korulczyk@gmail.com> 1731674263 +0100	commit: added httpie and second discord client
+9878556eb734db88a67ba187170149afc7b98e91 930a3c10177a92a7921563a413cb0510beae97ed Grandkahuna43325 <kf.korulczyk@gmail.com> 1731674276 +0100	commit: enabled wake on lan
+930a3c10177a92a7921563a413cb0510beae97ed 852ba20188382f7c37a6611ed5bae6934c96318a Grandkahuna43325 <kf.korulczyk@gmail.com> 1731674385 +0100	commit (amend): enabled wake on lan
+852ba20188382f7c37a6611ed5bae6934c96318a 9878556eb734db88a67ba187170149afc7b98e91 Grandkahuna43325 <kf.korulczyk@gmail.com> 1731674436 +0100	reset: moving to HEAD~
+9878556eb734db88a67ba187170149afc7b98e91 ede69390fc799568a2041a33e2c9f3d0493f45ba Grandkahuna43325 <kf.korulczyk@gmail.com> 1731753546 +0100	commit (cherry-pick): added wlrobs to obs and installed httpie
+ede69390fc799568a2041a33e2c9f3d0493f45ba 8dcd9bcab680d0499145306462955b238dc914c6 Grandkahuna43325 <kf.korulczyk@gmail.com> 1731753593 +0100	commit (cherry-pick): Unstable in home-manager!
+8dcd9bcab680d0499145306462955b238dc914c6 2bacc6fa7c25da62c7f6c228fef50d0ee3a6f72a Grandkahuna43325 <kf.korulczyk@gmail.com> 1731857198 +0100	commit: wake on lan
+2bacc6fa7c25da62c7f6c228fef50d0ee3a6f72a 42bb5096da4ae59b91a0d2e2a64844f5671ca5b4 Grandkahuna43325 <kf.korulczyk@gmail.com> 1731914570 +0100	commit: preparing for server, simple wireguard config added
+42bb5096da4ae59b91a0d2e2a64844f5671ca5b4 0f0953a667fd8e69a7ad81206bdba5e6ebed7151 Grandkahuna43325 <kf.korulczyk@gmail.com> 1732049508 +0100	commit: added formatters for json xml html
+0f0953a667fd8e69a7ad81206bdba5e6ebed7151 27452ed6a46101b81ee169b8eeb47e472ae33bc4 Grandkahuna43325 <kf.korulczyk@gmail.com> 1732049558 +0100	commit (amend): added formatters for json xml html
+27452ed6a46101b81ee169b8eeb47e472ae33bc4 97f706a6008a859fb1c0e45c487eef44a40cfa73 Grandkahuna43325 <kf.korulczyk@gmail.com> 1732049569 +0100	commit (amend): added formatters for json xml html
+97f706a6008a859fb1c0e45c487eef44a40cfa73 cd32bed0e7a0680d09f130edd4c4c3faae681888 Grandkahuna43325 <kf.korulczyk@gmail.com> 1732049784 +0100	commit (amend): added formatters for json xml html
+cd32bed0e7a0680d09f130edd4c4c3faae681888 3e0fbada2c8060cc85ae35b85318dc2ba7e081d3 Grandkahuna43325 <kf.korulczyk@gmail.com> 1758131932 +0200	commit: tmp
+3e0fbada2c8060cc85ae35b85318dc2ba7e081d3 5bb2bf83da602a9be26f5a220fa3da6db747183e Grandkahuna43325 <kf.korulczyk@gmail.com> 1758206521 +0200	commit: running sshd
+5bb2bf83da602a9be26f5a220fa3da6db747183e 0bedf8572e6fd096f4e9c4526ccbd7c80e1cbc69 Grandkahuna43325 <kf.korulczyk@gmail.com> 1761549311 +0100	commit: added mobile.nix for mobile packages
+0bedf8572e6fd096f4e9c4526ccbd7c80e1cbc69 1c31dae008a1090d33cbc3c5ba35b301ed88650c Grandkahuna43325 <kf.korulczyk@gmail.com> 1761549419 +0100	commit: new apps for development
+1c31dae008a1090d33cbc3c5ba35b301ed88650c 0897a84c18ef5bae7d9c49558a97195f9105c082 Grandkahuna43325 <kf.korulczyk@gmail.com> 1761549466 +0100	commit: deleted unnecessary config in mobile.nix
+0897a84c18ef5bae7d9c49558a97195f9105c082 dbf78c8bdf4a6c892fbe51a03e36d3c53bd6bff0 Grandkahuna43325 <kf.korulczyk@gmail.com> 1761549552 +0100	commit: changed font
+dbf78c8bdf4a6c892fbe51a03e36d3c53bd6bff0 95645e845d4b9dfe5240a3b3adf41cb13fcc0dca Grandkahuna43325 <kf.korulczyk@gmail.com> 1761549563 +0100	commit: Games stuff
+95645e845d4b9dfe5240a3b3adf41cb13fcc0dca e2234f0ef4072a1df006e70b9b8547e933786783 Grandkahuna43325 <kf.korulczyk@gmail.com> 1761549586 +0100	commit: formatting

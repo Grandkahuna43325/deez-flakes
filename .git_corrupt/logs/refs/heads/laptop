@@ -1,0 +1,16 @@
+0000000000000000000000000000000000000000 9cd4e932be0c86bab318484c38fe958d48d2fbba Grandkahuna43325 <kf.korulczyk@gmail.com> 1730379291 +0100	branch: Created from main
+9cd4e932be0c86bab318484c38fe958d48d2fbba fd3b9221e7f7d4e9b7cba3be39860c302d674eee Grandkahuna43325 <kf.korulczyk@gmail.com> 1730387318 +0100	commit: first laptop commit
+fd3b9221e7f7d4e9b7cba3be39860c302d674eee 62d5d37536edc8417d0c30620e0b1bd51fb4408e Grandkahuna43325 <kf.korulczyk@gmail.com> 1730411279 +0100	pull origin main (finish): refs/heads/laptop onto ad2ab077c3712ab3723bb3c4328c58a071a67282
+62d5d37536edc8417d0c30620e0b1bd51fb4408e c033847ae39af3d3e737eda52be4b8c24b32ed40 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730411312 +0100	pull (finish): refs/heads/laptop onto fd3b9221e7f7d4e9b7cba3be39860c302d674eee
+c033847ae39af3d3e737eda52be4b8c24b32ed40 e0c90d0bddd1da1388949b24b89791cd1a4b1125 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730413354 +0100	pull: Fast-forward
+e0c90d0bddd1da1388949b24b89791cd1a4b1125 98123b87b0c5de069d8acd47807308688e96b3e5 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730487018 +0100	rebase (finish): refs/heads/laptop onto 16afa6f5cab3df507610984ad1d561a9d5e24a05
+98123b87b0c5de069d8acd47807308688e96b3e5 46d65de22e867d9dd4f20c9175d94ae720601503 Grandkahuna43325 <kf.korulczyk@gmail.com> 1730487062 +0100	rebase (finish): refs/heads/laptop onto 76bb9d607b1c50e6a72e541aa261e699e2e25ebd
+46d65de22e867d9dd4f20c9175d94ae720601503 e1d31b234e070b40bc56f73ec0bad3a5e66a789b Grandkahuna43325 <kf.korulczyk@gmail.com> 1730548859 +0100	rebase (finish): refs/heads/laptop onto da497e876c94a14d6bb26da8df63a32c0afc2a54
+e1d31b234e070b40bc56f73ec0bad3a5e66a789b 93262111c5a7e6ae04f47e924ec326917504187d Grandkahuna43325 <kf.korulczyk@gmail.com> 1730548952 +0100	rebase (finish): refs/heads/laptop onto 46d65de22e867d9dd4f20c9175d94ae720601503
+93262111c5a7e6ae04f47e924ec326917504187d b5d930e9828d0969286e508fd1211865b98312fe Grandkahuna43325 <kf.korulczyk@gmail.com> 1730820582 +0100	pull: Fast-forward
+b5d930e9828d0969286e508fd1211865b98312fe e011cc34d79841d7e40748f38fb3006525c9850b Grandkahuna43325 <kf.korulczyk@gmail.com> 1730931097 +0100	pull: Fast-forward
+e011cc34d79841d7e40748f38fb3006525c9850b 0ee28850651c30758a1deb7b5aaf711ed5e8770f Grandkahuna43325 <kf.korulczyk@gmail.com> 1731753493 +0100	pull: Fast-forward
+0ee28850651c30758a1deb7b5aaf711ed5e8770f 419a55a7bf827031082c45f9da227ff37da21f16 Grandkahuna43325 <kf.korulczyk@gmail.com> 1740739696 +0100	commit: added weylus(untested)
+419a55a7bf827031082c45f9da227ff37da21f16 e5b76eaf8dac9ef76b627004502279a628ee796a Grandkahuna43325 <kf.korulczyk@gmail.com> 1758131946 +0200	pull: Fast-forward
+e5b76eaf8dac9ef76b627004502279a628ee796a c997f91d6b038f0a452c281e5336c0a6fb80cee2 Grandkahuna43325 <kf.korulczyk@gmail.com> 1758205865 +0200	commit: update to 25.05
+c997f91d6b038f0a452c281e5336c0a6fb80cee2 fa87c8486ede8621fe2a481661310b7968cf32dd Grandkahuna43325 <kf.korulczyk@gmail.com> 1758224116 +0200	commit: chore: update config for new NixOS conventions
