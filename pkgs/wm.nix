@@ -6,7 +6,6 @@
     wl-clipboard
     wvkbd
     iio-hyprland
-    xdg-desktop-portal-hyprland
     wofi
     picom
     dunst
@@ -15,7 +14,6 @@
     hyprshot
     #separate config
     waybar
-    hyprland
 
     #welp I use hyprpaper so gb nitrogen
     # nitrogen
