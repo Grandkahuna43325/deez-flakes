@@ -119,7 +119,10 @@
     # Enable CUPS to print documents.
     printing.enable = true;
 
-    displayManager.defaultSession = "hyprland";
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
 
     # services.openvpn.servers = {
     #   homeVPN = { config = '' config /home/grandkahuna43325/.config/openvpn/home.conf ''; };
