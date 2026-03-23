@@ -187,14 +187,14 @@
   services = {
     pulseaudio.enable = false;
     pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+      # If you want to use JACK applications, uncomment this
+      jack.enable = true;
+    };
   };
 
   # Enable XDG Desktop Portal and required backends
@@ -231,15 +231,21 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    steam-run
-    steamcontroller
     pkgsUnstable.neovim
-    # pkgsUnstable.vmware-workstation
     git
     wget
     alacritty
     unzip
+    ntfs3g
+    wireguard-tools
+    acl
+    pkgsUnstable.yt-dlp
+    pkgsUnstable.rmpc
+    ffmpeg
+
     steam
+    steam-run
+    steamcontroller
     protontricks
     protonup-qt
     lutris
@@ -250,8 +256,7 @@
     pinentry-curses
     kdePackages.xwaylandvideobridge
     weylus
-    wireguard-tools
-    ntfs3g
+
 
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-base
@@ -277,6 +282,14 @@
   };
 
   # hardware.xone.enable = true;
+
+  services.sunshine = {
+    enable = true;
+    autoStart = true; # optional: starts Sunshine automatically on login
+    openFirewall = true;
+  };
+
+
 
   # something something gnupg
   services.pcscd.enable = true;

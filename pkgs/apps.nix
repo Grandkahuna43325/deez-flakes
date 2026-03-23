@@ -6,7 +6,8 @@
     git
     pavucontrol
     mpv
-    yt-dlp
+    pkgs-unstable.yt-dlp
+    (pkgs.python3.withPackages (ps: [ ps.mutagen ] ))
     qbittorrent
     libreoffice
     # gimp
@@ -15,6 +16,7 @@
     chromium
     xournalpp
     drawio
+    moonlight-qt
     pkgs-unstable.vesktop
     pkgs-unstable.figma-linux
     pkgs-unstable.gimp3
