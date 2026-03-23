@@ -5,6 +5,7 @@
     xclip
     wl-clipboard
     wvkbd
+    iio-hyprland
     xdg-desktop-portal-hyprland
     wofi
     picom
