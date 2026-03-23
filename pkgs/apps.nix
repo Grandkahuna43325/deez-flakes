@@ -12,6 +12,8 @@
     gimp
     inkscape
     ddccontrol
+    obsidian
+    moonlight-qt
     pkgs-unstable.xournalpp
     pkgs-unstable.figma-linux
     # required by xournalpp 

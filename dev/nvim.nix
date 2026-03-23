@@ -13,6 +13,7 @@
     luajitPackages.luarocks
     luajitPackages.jsregexp
     gdb
+    sqlite
   ];
 
   home.sessionVariables = {

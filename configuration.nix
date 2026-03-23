@@ -19,6 +19,7 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.default = "latest";
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -70,23 +71,27 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
+  hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
   users.extraUsers.grandkahuna43325.extraGroups = [ "audio" ];
   hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = false;
-    alsa.enable = false;
-    alsa.support32Bit = false;
-    pulse.enable = false;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+  services = {
+    blueman.enable = true;
+    pipewire = {
+      enable = false;
+      alsa.enable = false;
+      alsa.support32Bit = false;
+      pulse.enable = false;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -199,7 +204,7 @@
   #   enable = true;
   # };
 
-# i3
+  # i3
   services.xserver = {
     desktopManager = {
       xterm.enable = false;
@@ -213,14 +218,20 @@
       enable = true;
       extraPackages = with pkgs; [
         dmenu #application launcher most people use
-          i3status # gives you the default i3 status bar
-          i3lock #default i3 screen locker
-          i3blocks #if you are planning on using i3blocks over i3status
-          picom
-          polybar
-          rofi
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        i3blocks #if you are planning on using i3blocks over i3status
+        picom
+        polybar
+        rofi
       ];
     };
+  };
+
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    openFirewall = true;
   };
 
   programs.hyprland = {

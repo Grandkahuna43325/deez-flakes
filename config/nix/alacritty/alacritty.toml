@@ -236,7 +236,7 @@ multiplier = 3
 # Default: true
 
 [font]
-normal = { family = "Hack Nerd Font", style = "Bold" }
+normal = { family = "Hack Nerd Font Propo", style = "Bold" }
 size = 15
 builtin_box_drawing = true 
 

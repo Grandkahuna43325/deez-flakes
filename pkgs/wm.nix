@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     xclip
     wl-clipboard
+    wvkbd
     xdg-desktop-portal-hyprland
     wofi
     picom
