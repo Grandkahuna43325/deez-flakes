@@ -194,7 +194,7 @@
 
   # Open ports in the firewall.
   networking = {
-    hostName = "nixosLaptop";
+    hostName = "nixos";
 
     # Enable networking
     networkmanager.enable = true;
