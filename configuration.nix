@@ -158,6 +158,7 @@
 
   hardware = {
     bluetooth.enable = true;
+    graphics.enable = true;
   };
 
   users = {
@@ -165,15 +166,12 @@
     users.grandkahuna43325 = {
       isNormalUser = true;
       description = "Grandkahuna43325";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "audio" "input" "uinput" ];
       packages = with pkgs; [
       ];
     };
 
     defaultUserShell = pkgs.zsh;
-
-    # sound
-    extraUsers.grandkahuna43325.extraGroups = [ "audio" ];
   };
 
   # Configure console keymap
