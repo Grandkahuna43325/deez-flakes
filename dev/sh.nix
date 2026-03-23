@@ -23,6 +23,8 @@
     trash-cli
     pkgs-unstable.posting
 
+    ueberzugpp
+
     #separate config
     zellij
     zsh
@@ -54,6 +56,7 @@
     envExtra = ''
       source ~/.env
       source ~/.p10k.zsh
+      source ~/.scripts/*
     '';
     shellAliases = {
       q = "exit";

@@ -19,7 +19,6 @@
     jdk
     jdt-language-server
     typescript
-    python314
     gradle
   ];
 
