@@ -20,6 +20,19 @@
     pkgs-unstable.gimp3
   ];
 
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/grandkahuna43325/Music";
+    extraConfig = ''
+      bind_to_address "/run/mpd/socket"
+      audio_output {
+        type "pipewire"
+        name "PipeWire Sound Server"
+      }
+    '';
+  };
+
+
   programs.gh.enable = true;
   programs.git = {
     enable = true;
