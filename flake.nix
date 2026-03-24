@@ -13,7 +13,12 @@
     nixos-hardware.url = "github:8bitbuddhist/nixos-hardware?ref=surface-kernel-6.18";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    # hyprland.url = "github:hyprwm/Hyprland";
+    
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # hyprgrass = {
     #   url = "github:horriblename/hyprgrass";
     #   inputs.hyprland.follows = "hyprland";

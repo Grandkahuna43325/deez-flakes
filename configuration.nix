@@ -4,6 +4,9 @@
 
 { config, inputs, pkgs, pkgsUnstable, ... }:
 
+let
+  pkgsHypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports =
     [
@@ -155,8 +158,8 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
   };
@@ -166,8 +169,8 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      # package = pkgs-hyprland.mesa;
-      # package32 = pkgs-hyprland.pkgsi686Linux.mesa;
+      package = pkgsHypr.mesa;
+      package32 = pkgsHypr.pkgsi686Linux.mesa;
     };
   };
 
