@@ -77,6 +77,7 @@
     # x11
     xserver = {
       enable = true;
+      videoDrivers = [ "modesetting" ];
 
       # Configure keymap in X11
       xkb = {
@@ -101,6 +102,8 @@
         ];
       };
     }; # --
+
+    desktopManager.plasma6.enable = true;
 
     # screen sharing
     sunshine = {
@@ -130,7 +133,6 @@
 
     # Enable the KDE Plasma Desktop Environment.
     # displayManager.sddm.enable = true;
-    # desktopManager.plasma6.enable = true;
   };
 
   programs = {
@@ -153,15 +155,20 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
   };
 
   hardware = {
     bluetooth.enable = true;
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      # package = pkgs-hyprland.mesa;
+      # package32 = pkgs-hyprland.pkgsi686Linux.mesa;
+    };
   };
 
   users = {
@@ -170,8 +177,8 @@
       isNormalUser = true;
       description = "Grandkahuna43325";
       extraGroups = [ "networkmanager" "wheel" "audio" "input" "uinput" ];
-      packages = with pkgs; [
-      ];
+      # packages = with pkgs; [
+      # ];
     };
 
     defaultUserShell = pkgs.zsh;
