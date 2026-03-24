@@ -14,8 +14,8 @@ in
     pkgs.libnotify
     pkgs.waybar
 
-    pkgsHypr.hyprshot
-    inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
+    # pkgsHypr.hyprshot
+    # inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
   ];
 
 
@@ -87,22 +87,22 @@ in
     };
   };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload =
-        [ "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg" "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg" ];
-      wallpaper = [
-        "eDP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
-        "HDMI-A-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg"
-      ];
-    };
-  };
+  # services.hyprpaper = {
+  #   enable = true;
+  #   settings = {
+  #     preload =
+  #       [ "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg" "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg" ];
+  #     wallpaper = [
+  #       "eDP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
+  #       "HDMI-A-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg"
+  #     ];
+  #   };
+  # };
 
-  programs.hyprshot = {
-    enable = true;
-    package = pkgsHypr.hyprshot;
-  };
+  # programs.hyprshot = {
+  #   enable = true;
+  #   package = pkgsHypr.hyprshot;
+  # };
 
   programs.wofi = {
     enable = true;

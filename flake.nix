@@ -16,13 +16,13 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprpaper = {
+    #   url = "github:hyprwm/hyprpaper";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # hyprgrass = {
     #   url = "github:horriblename/hyprgrass";
@@ -116,18 +116,5 @@
           };
         };
       };
-
-      #nix-ld
-      # nixosConfigurations.grandkahuna43325 = nixpkgs.lib.nixosSystem {
-      #   inherit system;
-      #   modules = [
-      #     # ... add this line to the rest of your configuration modules
-      #     nix-ld.nixosModules.nix-ld
-      #
-      #     # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld)
-      #     # to not collide with the nixpkgs version.
-      #     { programs.nix-ld.dev.enable = true; }
-      #   ];
-      # };
     };
 }

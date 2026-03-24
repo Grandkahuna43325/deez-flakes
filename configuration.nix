@@ -106,13 +106,23 @@ in
       };
     }; # --
 
-    desktopManager.plasma6.enable = true;
+    # desktopManager.plasma6.enable = true;
 
     # screen sharing
     sunshine = {
       enable = true;
       autoStart = true;
       openFirewall = true;
+    };
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/Hyprland";
+          user = "grandkahuna43325";
+        };
+      };
     };
 
 
@@ -245,7 +255,17 @@ in
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
-  environment.variables.EDITOR = "nvim";
+  environment = {
+    variables.EDITOR = "nvim";
+    sessionVariables = {
+      # Surface-specific (helps with some rendering issues)
+      WLR_NO_HARDWARE_CURSORS = "1";
+      # Force iris driver (Kaby Lake HD 620)
+      MESA_LOADER_DRIVER_OVERRIDE = "iris";
+      # Recommended by Hyprland on NixOS
+      LIBVA_DRIVER_NAME = "i965"; # or "iris" — try both if one doesn't work
+    };
+  };
 
 
   # This value determines the NixOS release from which the default
