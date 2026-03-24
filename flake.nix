@@ -8,15 +8,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # change this when updating kernel 
+    # change this when updating kernel
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-hardware.url = "github:8bitbuddhist/nixos-hardware?ref=surface-kernel-6.18";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.hyprland.follows = "hyprland";
     };
 
     # hyprgrass = {
@@ -28,8 +33,7 @@
     # nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  # outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, hyprland, ... }@inputs:
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -93,7 +97,7 @@
             #           # possible values: l, r, u, or d
             #           # to disable it set it to anything else
             #           workspace_swipe_edge = "d";
-            #           
+            #
             #           long_press_delay = 400; # in milliseconds
             #
             #           resize_on_border_long_press = true;
