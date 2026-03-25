@@ -28,99 +28,82 @@
         edge_margin = 10;
         emulate_touchpad_swipe = false;
       };
+
+      "exec-once" = [
+        "wl-clipboard-history -t"
+        "~/.config/hypr/xdg-portal-hyprland"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "/usr/lib/polkit-kde-authentication-agent-1"
+        "hyprpaper"
+        "waybar"
+        "dunst"
+        "alacritty"
+        "iio-hyprland"
+        # "~/.config/hypr/background.sh";
+      ];
+
+      "monitor" = [
+        "HDMI-A-1,1920x1080@60,0x0,1"
+        "DP-2,1920x1080@144,1920x0,1"
+      ];
+
+
+      input = {
+        "kb_layout" = "pl";
+        "follow_mouse" = "1";
+        "sensitivity" = "0"; # -1.0 - 1.0, 0 means no modification.
+        "touchpad" = {
+          "disable_while_typing" = "true";
+          "natural_scroll" = "true";
+        };
+      };
+
+      general = {
+        "gaps_in" = 10;
+        "gaps_out" = 15;
+        "border_size" = 1;
+        "col.inactive_border" = "rgba(f7768eff) rgba(73dacaff) 45deg";
+        "col.active_border" = "rgba(73daca00) rgba(f7768e00) 45deg";
+        "no_border_on_floating" = false;
+        "layout" = "dwindle";
+      };
+
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        mouse_move_enables_dpms = true;
+        enable_swallow = true;
+        swallow_regex = "^(alacritty)$";
+      };
+
+      decoration = {
+        rounding = "16";
+
+        active_opacity = 1.0;
+        inactive_opacity = 0.8;
+
+        "blur:enabled" = false;
+        "blur:size" = 2;
+        "blur:passes" = 2;
+
+
+        drop_shadow = true;
+        shadow_ignore_window = true;
+        shadow_offset = "2 2";
+        shadow_range = 8;
+        shadow_render_power = 10;
+        col.shadow = "rgba (00000055)";
+      };
+
+
+
+
     };
-    
+
     extraConfig = ''
-      exec-once = wl-clipboard-history -t
-exec-once = ~/.config/hypr/xdg-portal-hyprland
-exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once = /usr/lib/polkit-kde-authentication-agent-1
-# exec-once =  nitrogen --restore
-# exec-once = swaybg -m fill -i ~/Pictures/mad-dog-jones-nightfall.jpg
-# exec-once = ~/.config/hypr/background.sh
-exec-once = hyprpaper
-exec-once = waybar
-exec-once = dunst
-exec-once = alacritty
-exec-once = iio-hyprland
-
-# █▀▄▀█ █▀█ █▄░█ █ ▀█▀ █▀█ █▀█
-# █░▀░█ █▄█ █░▀█ █ ░█░ █▄█ █▀▄
-# monitor=DP-3, 1920x1080@60hz,0x0,1
-monitor = HDMI-A-1,1920x1080@60,0x0,1
-monitor = DP-2,1920x1080@144,1920x0,1
-# wsbind=3,DP-3
-# wsbind=2,DP-3
 
 
-# █ █▄░█ █▀█ █░█ ▀█▀
-# █ █░▀█ █▀▀ █▄█ ░█░
-input {
-  kb_layout = pl
-  follow_mouse = 1
-  sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-  touchpad {
-    disable_while_typing = true
-    natural_scroll = true
-  }
-}
-
-gestures {
-    workspace_swipe = true
-    workspace_swipe_fingers = 3
-}
-
-# █▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ █░░
-# █▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ █▄▄
-general {
-  gaps_in=10
-  gaps_out=15
-  border_size=1
-  col.inactive_border=rgba(f7768eff) rgba(73dacaff) 45deg
-  col.active_border=rgba(73daca00) rgba(f7768e00) 45deg
-  no_border_on_floating = false
-  layout = dwindle
-}
-
-# █▀▄▀█ █ █▀ █▀▀
-# █░▀░█ █ ▄█ █▄▄
-misc {
-  disable_hyprland_logo = true
-  disable_splash_rendering = true
-  mouse_move_enables_dpms = true
-  enable_swallow = true
-  swallow_regex = ^(alacritty)$
-}
-
-decoration {
-  # █▀█ █▀█ █░█ █▄░█ █▀▄   █▀▀ █▀█ █▀█ █▄░█ █▀▀ █▀█
-  # █▀▄ █▄█ █▄█ █░▀█ █▄▀   █▄▄ █▄█ █▀▄ █░▀█ ██▄ █▀▄
-  rounding = 16
-
-  # █▀█ █▀█ ▄▀█ █▀▀ █ ▀█▀ █▄█
-  # █▄█ █▀▀ █▀█ █▄▄ █ ░█░ ░█░
-  active_opacity = 1.0
-  inactive_opacity = 0.8
-
-  # █▄▄ █░░ █░█ █▀█
-  # █▄█ █▄▄ █▄█ █▀▄
-  blur:enabled = false
-  blur:size = 2
-  blur:passes = 2
-
-
-  # █▀ █░█ ▄▀█ █▀▄ █▀█ █░█░█
-  # ▄█ █▀█ █▀█ █▄▀ █▄█ ▀▄▀▄▀
-  drop_shadow = true
-  shadow_ignore_window = true
-  shadow_offset = 2 2
-  shadow_range = 8
-  shadow_render_power = 10
-  col.shadow = rgba(00000055)
-  blurls = gtk-layer-shell
-  blurls = lockscreen
-}
 
 # ▄▀█ █▄░█ █ █▀▄▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█
 # █▀█ █░▀█ █ █░▀░█ █▀█ ░█░ █ █▄█ █░▀█
@@ -286,7 +269,7 @@ bind = SUPER CTRL, l, resizeactive, 20 0
 bind = SUPER CTRL, k, resizeactive, 0 -20
 bind = SUPER CTRL, j, resizeactive, 0 20
 
-#maybe someday 
+#maybe someday
 #bind = SUPER SHIFT, X, exec, hyprpicker -a -n
 
 
