@@ -55,54 +55,7 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            # {
-            #   wayland.windowManager.hyprland = {
-            #     enable = true;
-            #     xwayland.enable = true;
-            #     # set the flake package
-            #     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-            #     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-            #     plugins = [
-            #       inputs.hyprgrass.packages.${pkgs.system}.default
-            #
-            #       # optional integration with pulse-audio, see examples/hyprgrass-pulse/README.md
-            #       inputs.hyprgrass.packages.${pkgs.system}.hyprgrass-pulse
-            #     ];
-            #     settings = {
-            #       plugin = {
-            #         touch_gestures = {
-            #           hyprgrass-bind = [
-            #             #from bottom edge up: toggle wvkbd
-            #             ", edge:d:u, exec, wvkbd-toggle"
-            #             #from upper edge down: kill the active window
-            #             ", edge:u:d, killactive"
-            #           ];
-            #
-            #
-            #           # The default sensitivity is probably too low on tablet screens,
-            #           # I recommend turning it up to 4.0
-            #           sensitivity = 2.0;
-            #
-            #           # must be >= 3
-            #           workspace_swipe_fingers = 3;
-            #
-            #           # switching workspaces by swiping from an edge, this is separate from workspace_swipe_fingers
-            #           # and can be used at the same time
-            #           # possible values: l, r, u, or d
-            #           # to disable it set it to anything else
-            #           workspace_swipe_edge = "d";
-            #
-            #           long_press_delay = 400; # in milliseconds
-            #
-            #           resize_on_border_long_press = true;
-            #
-            #           edge_margin = 10;
-            #           emulate_touchpad_swipe = false;
-            #         };
-            #       };
-            #     };
-            #   };
-            # }
+            ./flakes/hyprland.nix
             ./home.nix
           ];
           extraSpecialArgs = {
