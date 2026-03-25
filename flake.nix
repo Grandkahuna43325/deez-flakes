@@ -21,13 +21,13 @@
 
     # hyprpaper = {
     #   url = "github:hyprwm/hyprpaper";
-    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
     # };
 
-    # hyprgrass = {
-    #   url = "github:horriblename/hyprgrass";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprgrass = {
+      url = "github:horriblename/hyprgrass";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     # nix-ld.url = "github:Mic92/nix-ld";
     # nix-ld.inputs.nixpkgs.follows = "nixpkgs";
@@ -53,6 +53,7 @@
       homeConfigurations = {
         grandkahuna43325 = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
           modules = [
             # {
             #   wayland.windowManager.hyprland = {
@@ -68,13 +69,6 @@
             #       inputs.hyprgrass.packages.${pkgs.system}.hyprgrass-pulse
             #     ];
             #     settings = {
-            #       gestures = {
-            #         # built-in gesture to switch workspaces
-            #         workspace_swipe = true;
-            #         workspace_swipe_touch = true;
-            #         workspace_swipe_cancel_ratio = 0.15;
-            #       };
-            #
             #       plugin = {
             #         touch_gestures = {
             #           hyprgrass-bind = [

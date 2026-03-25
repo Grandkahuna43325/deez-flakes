@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   pkgsHypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -16,6 +16,8 @@ in
 
     # pkgsHypr.hyprshot
     # inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
+    pkgs.hyprpaper
+    inputs.hyprgrass.packages.${pkgs.system}.default
   ];
 
 
@@ -87,17 +89,17 @@ in
     };
   };
 
-  # services.hyprpaper = {
-  #   enable = true;
-  #   settings = {
-  #     preload =
-  #       [ "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg" "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg" ];
-  #     wallpaper = [
-  #       "eDP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
-  #       "HDMI-A-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg"
-  #     ];
-  #   };
-  # };
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload =
+        [ "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg" "/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg" ];
+      wallpaper = [
+        "eDP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
+        "HDMI-A-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg"
+      ];
+    };
+  };
 
   # programs.hyprshot = {
   #   enable = true;

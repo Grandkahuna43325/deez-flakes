@@ -78,33 +78,33 @@ in
 
 
     # x11
-    xserver = {
-      enable = true;
-      videoDrivers = [ "modesetting" ];
-
-      # Configure keymap in X11
-      xkb = {
-        layout = "pl";
-        variant = "";
-      };
-
-      desktopManager = {
-        xterm.enable = false;
-      };
-
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          dmenu #application launcher most people use
-          i3status # gives you the default i3 status bar
-          i3lock #default i3 screen locker
-          i3blocks #if you are planning on using i3blocks over i3status
-          picom
-          polybar
-          rofi
-        ];
-      };
-    }; # --
+    # xserver = {
+    #   enable = true;
+    #   videoDrivers = [ "modesetting" ];
+    #
+    #   # Configure keymap in X11
+    #   xkb = {
+    #     layout = "pl";
+    #     variant = "";
+    #   };
+    #
+    #   desktopManager = {
+    #     xterm.enable = false;
+    #   };
+    #
+    #   windowManager.i3 = {
+    #     enable = true;
+    #     extraPackages = with pkgs; [
+    #       dmenu #application launcher most people use
+    #       i3status # gives you the default i3 status bar
+    #       i3lock #default i3 screen locker
+    #       i3blocks #if you are planning on using i3blocks over i3status
+    #       picom
+    #       polybar
+    #       rofi
+    #     ];
+    #   };
+    # }; # --
 
     # desktopManager.plasma6.enable = true;
 
@@ -119,7 +119,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/Hyprland";
+          command = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
           user = "grandkahuna43325";
         };
       };
@@ -133,7 +133,7 @@ in
     blueman.enable = true;
 
     # Enable CUPS to print documents.
-    printing.enable = true;
+    # printing.enable = true;
 
     displayManager.sddm = {
       enable = true;
@@ -151,7 +151,7 @@ in
   programs = {
     firefox.enable = true;
     zsh.enable = true;
-    nix-ld.enable = true;
+    # nix-ld.enable = true;
 
     gnupg.agent = {
       enable = true;
@@ -159,11 +159,11 @@ in
       enableSSHSupport = true;
     };
 
-    weylus = {
-      enable = true;
-      users = [ "grandkahuna43325" ];
-      openFirewall = true;
-    };
+    # weylus = {
+    #   enable = true;
+    #   users = [ "grandkahuna43325" ];
+    #   openFirewall = true;
+    # };
 
     hyprland = {
       enable = true;
@@ -178,9 +178,9 @@ in
     bluetooth.enable = true;
     graphics = {
       enable = true;
-      enable32Bit = true;
+      # enable32Bit = true;
       package = pkgsHypr.mesa;
-      package32 = pkgsHypr.pkgsi686Linux.mesa;
+      # package32 = pkgsHypr.pkgsi686Linux.mesa;
     };
   };
 

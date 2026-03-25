@@ -6,22 +6,22 @@
     git
     webcord-vencord
     pavucontrol
-    mpv
-    yt-dlp
+    # mpv
+    # yt-dlp
     libreoffice-qt
     gimp
-    inkscape
+    # inkscape
     ddccontrol
-    obsidian
+    # obsidian
     moonlight-qt
     pkgs-unstable.xournalpp
-    pkgs-unstable.figma-linux
+    # pkgs-unstable.figma-linux
     # required by xournalpp 
     adwaita-icon-theme
   ];
 
   programs.gh.enable = true;
-  programs.git = {
+  programs.git.settings = {
     enable = true;
     userName = "Grandkahuna43325";
     userEmail = "kf.korulczyk@gmail.com";
