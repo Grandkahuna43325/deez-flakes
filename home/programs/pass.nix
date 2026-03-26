@@ -1,4 +1,4 @@
-{configs, pkgs, ...}:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -7,6 +7,4 @@
     pass
     wofi-pass
   ];
-
 }
-

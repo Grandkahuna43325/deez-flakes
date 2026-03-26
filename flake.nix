@@ -44,7 +44,7 @@
         nixos = lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.nix
+            ./hosts/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-pro-intel
           ];
           specialArgs = { inherit inputs; };
@@ -55,8 +55,7 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            ./flakes/hyprland.nix
-            ./home.nix
+            ./home/home.nix
           ];
           extraSpecialArgs = {
             pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};

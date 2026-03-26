@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, pkgsUnstable, ... }:
+{ config, inputs, pkgs, ... }:
 
 let
   pkgsHypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -12,6 +12,7 @@ in
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/bundle.nix
     ];
   # make unstable available
   _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
@@ -153,12 +154,6 @@ in
     zsh.enable = true;
     # nix-ld.enable = true;
 
-    gnupg.agent = {
-      enable = true;
-      pinentryPackage = pkgs.pinentry-curses;
-      enableSSHSupport = true;
-    };
-
     # weylus = {
     #   enable = true;
     #   users = [ "grandkahuna43325" ];
@@ -170,6 +165,13 @@ in
       xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
+
+
+    gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-curses;
+      enableSSHSupport = true;
     };
 
   };
@@ -204,7 +206,6 @@ in
   security.rtkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pkgsUnstable.neovim
     git
     wget
     alacritty

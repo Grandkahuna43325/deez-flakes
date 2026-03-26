@@ -1,48 +1,15 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
-    fastfetch
-    ripgrep
-    bat
-    eza
-    zoxide
+    zsh
+    oh-my-zsh
     zsh-powerlevel10k
     zsh-syntax-highlighting
     zsh-history-substring-search
-    # thefuck
-    tldr
-    feh
-    devenv
-    fzf
-    ranger
-    nix-prefetch
-    carapace
-    bottom
-    httpie
-
-    #separate config
-    zellij
-    zsh
-    oh-my-zsh
-    alacritty
   ];
 
-  programs.ssh.matchBlocks = {
-    "*.kfkorulczyk.pl" = {
-      proxyCommand = "ProxyCommand /run/current-system/sw/bin/cloudflared access ssh --hostname %h";
-    };
-  };
 
-  programs.zoxide.options = [
-    "--cmd cd"
-  ];
-
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
-
-
-  programs.carapace.enable = true;
   programs.zsh = {
     enable = true;
     envExtra = "
