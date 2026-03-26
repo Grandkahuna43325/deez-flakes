@@ -15,8 +15,8 @@
           "/home/grandkahuna43325/.dotfiles/home/wm/hyprpaper/wallpapa/2113.jpg"
         ];
       wallpaper = [
-        "eDP-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2111.jpg"
-        "HDMI-A-1,/home/grandkahuna43325/.dotfiles/pkgs/wallpapa/2113.jpg"
+        "eDP-1,/home/grandkahuna43325/.dotfiles/home/wm/hyprpaper/wallpapa/2111.jpg"
+        "HDMI-A-1,/home/grandkahuna43325/.dotfiles/home/wm/hyprpaper/wallpapa/2113.jpg"
       ];
     };
   };
