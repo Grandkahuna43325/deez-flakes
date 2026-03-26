@@ -29,7 +29,7 @@
         emulate_touchpad_swipe = false;
       };
 
-      "exec-once" = [
+      exec-once = [
         "wl-clipboard-history -t"
         "~/.config/hypr/xdg-portal-hyprland"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
