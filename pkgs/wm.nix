@@ -1,22 +1,23 @@
-{ configs, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
+let
+  pkgsHypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
-  home.packages = with pkgs; [
-    xclip
-    wl-clipboard
-    wvkbd
-    iio-hyprland
-    wofi
-    picom
-    dunst
-    libnotify
-    hyprpaper
-    hyprshot
-    #separate config
-    waybar
+  home.packages = [
+    pkgs.xclip
+    pkgs.wl-clipboard
+    pkgs.wvkbd
+    pkgs.iio-hyprland
+    pkgs.wofi
+    pkgs.dunst
+    pkgs.libnotify
+    pkgs.waybar
 
-    #welp I use hyprpaper so gb nitrogen
-    # nitrogen
+    # pkgsHypr.hyprshot
+    # inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
+    pkgs.hyprpaper
+    inputs.hyprgrass.packages.${pkgs.system}.default
   ];
 
 
@@ -99,6 +100,11 @@
       ];
     };
   };
+
+  # programs.hyprshot = {
+  #   enable = true;
+  #   package = pkgsHypr.hyprshot;
+  # };
 
   programs.wofi = {
     enable = true;

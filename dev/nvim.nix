@@ -7,12 +7,12 @@
     nodejs
     go
     fd
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     docker-compose-language-service
     lua
     luajitPackages.luarocks
     luajitPackages.jsregexp
-    gdb
+    # gdb
     sqlite
   ];
 

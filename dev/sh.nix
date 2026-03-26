@@ -10,7 +10,7 @@
     zsh-powerlevel10k
     zsh-syntax-highlighting
     zsh-history-substring-search
-    thefuck
+    # thefuck
     tldr
     feh
     devenv
@@ -108,7 +108,7 @@
         "command-not-found"
         "docker"
         "gitfast"
-        "thefuck"
+        # "thefuck"
       ];
     };
   };
