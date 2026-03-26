@@ -38,8 +38,8 @@
         "hyprpaper"
         "waybar"
         "dunst"
-        "alacritty"
         "iio-hyprland"
+        "xournalpp"
         # "~/.config/hypr/background.sh";
       ];
 
@@ -50,23 +50,22 @@
 
 
       input = {
-        "kb_layout" = "pl";
-        "follow_mouse" = "1";
-        "sensitivity" = "0"; # -1.0 - 1.0, 0 means no modification.
-        "touchpad" = {
-          "disable_while_typing" = "true";
-          "natural_scroll" = "true";
+        kb_layout = "pl";
+        follow_mouse = "1";
+        sensitivity = "0"; # -1.0 - 1.0, 0 means no modification.
+        touchpad = {
+          disable_while_typing = "true";
+          natural_scroll = "true";
         };
       };
 
       general = {
-        "gaps_in" = 10;
-        "gaps_out" = 15;
-        "border_size" = 1;
+        gaps_in = 10;
+        gaps_out = 15;
+        border_size = 1;
         "col.inactive_border" = "rgba(f7768eff) rgba(73dacaff) 45deg";
         "col.active_border" = "rgba(73daca00) rgba(f7768e00) 45deg";
-        "no_border_on_floating" = false;
-        "layout" = "dwindle";
+        layout = "dwindle";
       };
 
       misc = {
@@ -86,206 +85,168 @@
         "blur:enabled" = false;
         "blur:size" = 2;
         "blur:passes" = 2;
-
-
-        drop_shadow = true;
-        shadow_ignore_window = true;
-        shadow_offset = "2 2";
-        shadow_range = 8;
-        shadow_render_power = 10;
-        col.shadow = "rgba (00000055)";
       };
 
+      animations = {
+        enabled = true;
+        bezier = [
+          "overshot, 0.05, 0.5, 0.1, 1.05"
+          "smoothOut, 0.36, 0, 0.66, -0.56"
+          "smoothIn, 0.25, 0.8, 0.5, 1"
+        ];
 
 
+        animation = [
+          "windows, 1, 5, overshot, slide"
+          "windowsOut, 1, 4, smoothOut, slide"
+          "windowsMove, 1, 4, default"
+          "border, 1, 10, default"
+          "fade, 1, 10, smoothIn"
+          "fadeDim, 1, 10, smoothIn"
+          "workspaces, 1, 6, default"
+        ];
 
+      };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
+      windowrule = [
+        "match:class file_progress, float on"
+        "match:class confirm, float on"
+        "match:class dialog, float on"
+        "match:class download, float on"
+        "match:class notification, float on"
+        "match:class error, float on"
+        "match:class splash, float on"
+        "match:class confirmreset, float on"
+        "match:title .*Open File.*, float on"
+        "match:title branchdialog, float on"
+        "match:class Lxappearance, float on"
+        "match:class wofi, float on"
+        "match:class viewnior, float on"
+        "match:class feh, float on"
+        "match:class pavucontrol-qt, float on"
+        "match:class pavucontrol, float on"
+        "match:class file-roller, float on"
+        "match:class wlogout, fullscreen on"
+        "match:title wlogout, float on"
+        "match:title wlogout, fullscreen on"
+        "match:title ^(Media viewer)$, float on"
+        "match:title ^(Volume Control)$, float on"
+        "match:title ^(Picture-in-Picture)$, float on"
+        "match:title ^(Volume Control)$, size 800 600"
+        "match:title ^(Volume Control)$, move 39% 420"
+
+
+        # Always open some programs on specified workspace
+        # NOTE: Adjust the workspace names/numbers as per your setup.
+        "workspace 2, match:class alacritty"
+        "workspace 5, match:title ^(.*Firefox.*)$"
+      ];
+
+
+      # windowrulev2 = [
+      #
+      #
+      #   "workspace 1, class:^(kitty)$"
+      #   "workspace 2, class:^(firefox)$"
+      #   "workspace 3, class:^(discord)$"
+      #   "workspace 3, class:^(Slack)$"
+      #   "workspace 4, class:^(DBeaver)$"
+      #   "workspace 5, class:^(Docker Desktop)$"
+      #   "workspace special, class:^(thunar)$"
+      #   "workspace special, class:^(YouTube Music)$"
+      # ];
+
+
+      # Keybindings
+      bind = [
+        "SUPER, X, exec, alacritty"
+        "SUPER, Q, killactive"
+        "SUPER, r, exec, wofi --show drun"
+        "SUPER, p, exec, wofi-pass"
+
+        # Move between workspaces
+        "SUPER, H, movefocus, left"
+        "SUPER, L, movefocus, right"
+
+        # Move focused window
+        "SUPER, O, movetoworkspace, next"
+
+        # Fullscreen mode
+        "SUPER, F, fullscreen"
+
+        # Switch to workspace
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
+        "SUPER, 9, workspace, 9"
+        "SUPER, 0, workspace, 10"
+
+        # Move container to workspace
+        "SUPER+SHIFT, 1, movetoworkspace, 1"
+        "SUPER+SHIFT, 2, movetoworkspace, 2"
+        "SUPER+SHIFT, 3, movetoworkspace, 3"
+        "SUPER+SHIFT, 4, movetoworkspace, 4"
+        "SUPER+SHIFT, 5, movetoworkspace, 5"
+        "SUPER+SHIFT, 6, movetoworkspace, 6"
+        "SUPER+SHIFT, 7, movetoworkspace, 7"
+        "SUPER+SHIFT, 8, movetoworkspace, 8"
+        "SUPER+SHIFT, 9, movetoworkspace, 9"
+        "SUPER+SHIFT, 0, movetoworkspace, 10"
+
+
+        # Lock screen
+        "SUPER+SHIFT, R, exec, shutdown now"
+
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPrev, exec, playerctl previous"
+
+        "SUPER, h, movefocus, l"
+        "SUPER, l, movefocus, r"
+        "SUPER, k, movefocus, u"
+        "SUPER, j, movefocus, d"
+
+        "SUPER SHIFT, h, movewindow, l"
+        "SUPER SHIFT, l, movewindow, r"
+        "SUPER SHIFT, k, movewindow, u"
+        "SUPER SHIFT, j, movewindow, d"
+
+        "SUPER CTRL, h, resizeactive, -20 0"
+        "SUPER CTRL, l, resizeactive, 20 0"
+        "SUPER CTRL, k, resizeactive, 0 -20"
+        "SUPER CTRL, j, resizeactive, 0 20"
+      ];
+
+      binde = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      workspace = [
+        # Workspaces
+        "1, '1:  '"
+        "2, '2:  '"
+        "3, '3:  '"
+        "4, '4:  '"
+        "5, '5:  '"
+        "6, '6:  '"
+        "7, '7:  '"
+        "8, '8: ♫ '"
+        "9, '9:  '"
+        "10, '10:  '"
+      ];
     };
-
-    extraConfig = ''
-
-
-
-# ▄▀█ █▄░█ █ █▀▄▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█
-# █▀█ █░▀█ █ █░▀░█ █▀█ ░█░ █ █▄█ █░▀█
-animations {
-  enabled = true
-  # █▄▄ █▀▀ ▀█ █ █▀▀ █▀█   █▀▀ █░█ █▀█ █░█ █▀▀
-  # █▄█ ██▄ █▄ █ ██▄ █▀▄   █▄▄ █▄█ █▀▄ ▀▄▀ ██▄
-  bezier = overshot, 0.05, 0.5, 0.1, 1.05
-  bezier = smoothOut, 0.36, 0, 0.66, -0.56
-  bezier = smoothIn, 0.25, 0.8, 0.5, 1
-
-  animation = windows, 1, 5, overshot, slide
-  animation = windowsOut, 1, 4, smoothOut, slide
-  animation = windowsMove, 1, 4, default
-  animation = border, 1, 10, default
-  animation = fade, 1, 10, smoothIn
-  animation = fadeDim, 1, 10, smoothIn
-  animation = workspaces, 1, 6, default
-
-}
-
-# █░░ ▄▀█ █▄█ █▀█ █░█ ▀█▀ █▀
-# █▄▄ █▀█ ░█░ █▄█ █▄█ ░█░ ▄█
-dwindle {
-  no_gaps_when_only = false
-  pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-  preserve_split = true # you probably want this
-}
-
-# █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀█ █░█ █░░ █▀▀ █▀
-# ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █▀▄ █▄█ █▄▄ ██▄ ▄█
-windowrule = float, file_progress
-windowrule = float, confirm
-windowrule = float, dialog
-windowrule = float, download
-windowrule = float, notification
-windowrule = float, error
-windowrule = float, splash
-windowrule = float, confirmreset
-windowrule = float, title:Open File
-windowrule = float, title:branchdialog
-windowrule = float, Lxappearance
-windowrule = float, wofi
-windowrule = float,viewnior
-# windowrule = float,feh
-windowrule = float, pavucontrol-qt
-windowrule = float, pavucontrol
-# windowrule = float, file-roller
-windowrule = fullscreen, wlogout
-windowrule = float, title:wlogout
-windowrule = fullscreen, title:wlogout
-windowrule = idleinhibit focus, mpv
-windowrule = idleinhibit fullscreen, firefox
-windowrule = float, title:^(Media viewer)$
-windowrule = float, title:^(Volume Control)$
-windowrule = float, title:^(Picture-in-Picture)$
-windowrule = size 800 600, title:^(Volume Control)$
-windowrule = move 39% 420, title:^(Volume Control)$
-
-windowrulev2 = workspace 1, class:^(kitty)$
-windowrulev2 = workspace 2, class:^(firefox)$
-windowrulev2 = workspace 3, class:^(discord)$
-windowrulev2 = workspace 3, class:^(Slack)$
-windowrulev2 = workspace 4, class:^(DBeaver)$
-windowrulev2 = workspace 5, class:^(Docker Desktop)$
-windowrulev2 = workspace special, class:^(thunar)$
-windowrulev2 = workspace special, class:^(YouTube Music)$
-
-
-# █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄
-# █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀
-
-# Keybindings
-bind = SUPER, X, exec, alacritty
-bind = SUPER, Q, killactive
-bind = SUPER, r, exec, wofi --show drun
-bind = SUPER, p, exec, wofi-pass
-
-# Move between workspaces
-bind = SUPER, H, movefocus, left
-bind = SUPER, L, movefocus, right
-
-# Move focused window
-bind = SUPER, O, movetoworkspace, next
-
-# Fullscreen mode
-bind = SUPER, F, fullscreen
-
-# Workspaces
-workspace = 1, "1:  "
-workspace = 2, "2:  "
-workspace = 3, "3:  "
-workspace = 4, "4:  "
-workspace = 5, "5:  "
-workspace = 6, "6:  "
-workspace = 7, "7:  "
-workspace = 8, "8: ♫ "
-workspace = 9, "9:  "
-workspace = 10, "10:  "
-
-# Switch to workspace
-bind = SUPER, 1, workspace, 1
-bind = SUPER, 2, workspace, 2
-bind = SUPER, 3, workspace, 3
-bind = SUPER, 4, workspace, 4
-bind = SUPER, 5, workspace, 5
-bind = SUPER, 6, workspace, 6
-bind = SUPER, 7, workspace, 7
-bind = SUPER, 8, workspace, 8
-bind = SUPER, 9, workspace, 9
-bind = SUPER, 0, workspace, 10
-
-# Move container to workspace
-bind = SUPER+SHIFT, 1, movetoworkspace, 1
-bind = SUPER+SHIFT, 2, movetoworkspace, 2
-bind = SUPER+SHIFT, 3, movetoworkspace, 3
-bind = SUPER+SHIFT, 4, movetoworkspace, 4
-bind = SUPER+SHIFT, 5, movetoworkspace, 5
-bind = SUPER+SHIFT, 6, movetoworkspace, 6
-bind = SUPER+SHIFT, 7, movetoworkspace, 7
-bind = SUPER+SHIFT, 8, movetoworkspace, 8
-bind = SUPER+SHIFT, 9, movetoworkspace, 9
-bind = SUPER+SHIFT, 0, movetoworkspace, 10
-
-# Always open some programs on specified workspace
-# NOTE: Adjust the workspace names/numbers as per your setup.
-windowrule = workspace 2, class:alacritty
-windowrule = workspace 5, ^(.*Firefox.*)$
-
-# Lock screen
-bind = SUPER+SHIFT, R, exec, shutdown now
-
-
-# █▀▄▀█ █░█ █░░ ▀█▀ █ █▀▄▀█ █▀▀ █▀▄ █ ▄▀█
-# █░▀░█ █▄█ █▄▄ ░█░ █ █░▀░█ ██▄ █▄▀ █ █▀█
-binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-binde=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-binde=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bind=, XF86AudioPlay, exec, playerctl play-pause
-bind=, XF86AudioPause, exec, playerctl play-pause
-bind=, XF86AudioNext, exec, playerctl next
-bind=, XF86AudioPrev, exec, playerctl previous
-
-
-# █▀▀ █▀█ █▀▀ █░█ █▀
-# █▀░ █▄█ █▄▄ █▄█ ▄█
-bind = SUPER, h, movefocus, l
-bind = SUPER, l, movefocus, r
-bind = SUPER, k, movefocus, u
-bind = SUPER, j, movefocus, d
-
-# █▀▄▀█ █▀█ █░█ █▀▀
-# █░▀░█ █▄█ ▀▄▀ ██▄
-bind = SUPER SHIFT, h, movewindow, l
-bind = SUPER SHIFT, l, movewindow, r
-bind = SUPER SHIFT, k, movewindow, u
-bind = SUPER SHIFT, j, movewindow, d
-
-# █▀█ █▀▀ █▀ █ ▀█ █▀▀
-# █▀▄ ██▄ ▄█ █ █▄ ██▄
-bind = SUPER CTRL, h, resizeactive, -20 0
-bind = SUPER CTRL, l, resizeactive, 20 0
-bind = SUPER CTRL, k, resizeactive, 0 -20
-bind = SUPER CTRL, j, resizeactive, 0 20
-
-#maybe someday
-#bind = SUPER SHIFT, X, exec, hyprpicker -a -n
-
-
-
-# Output specific workspace assignments
-workspace = 1,DP-2
-workspace = 2,DP-2
-workspace = 3,DP-2
-workspace = 4,DP-2
-workspace = 5,HDMI-A-1
-workspace = 6,HDMI-A-1
-workspace = 7,HDMI-A-1
-workspace = 8,HDMI-A-1
-workspace = 9,HDMI-A-1
-workspace = 10,HDMI-A-1
-
-    '';
   };
 }
