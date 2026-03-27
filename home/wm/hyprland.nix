@@ -9,8 +9,8 @@
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 
     plugins = [
-      inputs.hyprgrass.packages.${pkgs.system}.default
-      inputs.hyprgrass.packages.${pkgs.system}.hyprgrass-pulse
+      # inputs.hyprgrass.packages.${pkgs.system}.default
+      # inputs.hyprgrass.packages.${pkgs.system}.hyprgrass-pulse
     ];
 
     settings = {

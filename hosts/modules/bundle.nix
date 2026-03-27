@@ -1,8 +1,6 @@
 { ... }:
-
 {
-
-  imports = [
+imports = [
     ./iio-hyprland.nix
   ];
 }

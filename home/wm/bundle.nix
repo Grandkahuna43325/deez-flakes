@@ -6,10 +6,10 @@
     ./hyprpaper/hyprpaper.nix
 
     ./hyprland.nix
-    ./hyprgrass.nix
     ./hyprshot.nix
     ./wofi.nix
     ./dunst.nix
+    ./misc.nix
     ./picom.nix
   ];
 }
