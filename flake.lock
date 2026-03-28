@@ -150,6 +150,31 @@
         "type": "github"
       }
     },
+    "hyprgrass": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyprgrass",
+          "hyprland",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774696293,
+        "narHash": "sha256-p/0JZViS9xOGTk3ruJGMP8kyIzuHaGTbD9w88wGo13s=",
+        "owner": "horriblename",
+        "repo": "hyprgrass",
+        "rev": "0d222373edd3cf2620555665f801ebb5bedf3117",
+        "type": "github"
+      },
+      "original": {
+        "owner": "horriblename",
+        "repo": "hyprgrass",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "aquamarine": "aquamarine",
@@ -520,6 +545,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hyprgrass": "hyprgrass",
         "hyprland": "hyprland",
         "iio-hyprland": "iio-hyprland",
         "nixos-hardware": "nixos-hardware",

@@ -12,6 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_surface;
+  hardware.microsoft-surface.kernelVersion = "stable";
+  microsoft-surface.ipts.enable = true;
+  config.microsoft-surface.surface-control.enable = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/86386349-b961-4809-8a01-fce28ff019b9";

@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    hyprgrass = {
+      url = "github:horriblename/hyprgrass";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
 
     # hyprpaper = {
@@ -26,10 +31,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs-unstable";
     # };
 
-    # hyprgrass = {
-    #   url = "github:horriblename/hyprgrass";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
 
     # nix-ld.url = "github:Mic92/nix-ld";
     # nix-ld.inputs.nixpkgs.follows = "nixpkgs";

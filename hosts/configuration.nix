@@ -50,6 +50,9 @@ in
   };
 
   services = {
+    logind.extraConfig = ''
+      HandlePowerKey=poweroff
+    '';
     # ssh
     openssh = {
       enable = true;
@@ -124,6 +127,10 @@ in
           user = "grandkahuna43325";
         };
       };
+    };
+
+    libinput = {
+      enable = true;
     };
 
 

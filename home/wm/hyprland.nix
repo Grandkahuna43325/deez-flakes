@@ -14,20 +14,20 @@
     ];
 
     settings = {
-      plugin.touch_gestures = {
-        hyprgrass-bind = [
-          ", edge:d:u, exec, wvkbd-toggle"
-          ", edge:u:d, killactive"
-        ];
-
-        sensitivity = 2.0;
-        workspace_swipe_fingers = 3;
-        workspace_swipe_edge = "d";
-        long_press_delay = 400;
-        resize_on_border_long_press = true;
-        edge_margin = 10;
-        emulate_touchpad_swipe = false;
-      };
+      # plugin.touch_gestures = {
+      #   hyprgrass-bind = [
+      #     ", edge:d:u, exec, wvkbd-toggle"
+      #     ", edge:u:d, killactive"
+      #   ];
+      #
+      #   sensitivity = 2.0;
+      #   workspace_swipe_fingers = 3;
+      #   workspace_swipe_edge = "d";
+      #   long_press_delay = 400;
+      #   resize_on_border_long_press = true;
+      #   edge_margin = 10;
+      #   emulate_touchpad_swipe = false;
+      # };
 
       exec-once = [
         "wl-clipboard-history -t"
@@ -40,6 +40,8 @@
         "dunst"
         "alacritty"
         "iio-hyprland"
+        "xournalpp"
+        "firefox"
         # "~/.config/hypr/background.sh";
       ];
 
@@ -47,6 +49,27 @@
         "HDMI-A-1,1920x1080@60,0x0,1"
         "DP-2,1920x1080@144,1920x0,1"
       ];
+
+      device = {
+        name = "iptsd-virtual-touchscreen-045e:001f";
+        enabled = "true";
+      };
+
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, close"
+        "3, up, dispatcher, wvkbd-mobintl"
+      ];
+
+      gestures = {
+        workspace_swipe_touch = "true";
+        workspace_swipe_touch_invert = "false";
+        workspace_swipe_distance = "150";
+        workspace_swipe_cancel_ratio = "0.5";
+        workspace_swipe_min_speed_to_force = "20";
+        workspace_swipe_create_new = "true";
+        workspace_swipe_forever = "true";
+      };
 
 
       input = {
@@ -139,11 +162,14 @@
         "match:title ^(Picture-in-Picture)$, float on"
         "match:title ^(Volume Control)$, size 800 600"
         "match:title ^(Volume Control)$, move 39% 420"
+        "match:title .*Open file.*, size 800 600"
+        "match:title .*Open file.*, move 39% 420"
 
         # Always open some programs on specified workspace
         # NOTE: Adjust the workspace names/numbers as per your setup.
-        "workspace 2, match:class alacritty"
-        "workspace 5, match:title ^(.*Firefox.*)$"
+        "workspace 1, match:title ^(.*alacritty.*)$"
+        "workspace 2, match:title ^(.*Firefox.*)$"
+        "workspace 3, match:title ^(.*Xournal.*)$"
       ];
 
       # Keybindings

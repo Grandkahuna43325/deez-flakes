@@ -11,6 +11,5 @@
     ./dunst.nix
     ./misc.nix
     ./picom.nix
-    ./fusuma.nix
   ];
 }
