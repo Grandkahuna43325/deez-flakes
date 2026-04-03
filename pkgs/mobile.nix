@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    scrcpy
+    pkgs-unstable.scrcpy
     android-tools
     gnirehtet
   ];

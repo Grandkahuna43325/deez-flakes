@@ -20,6 +20,7 @@
     pkgs-unstable.vesktop
     pkgs-unstable.figma-linux
     pkgs-unstable.gimp3
+    pkgs-unstable.caprine
   ];
 
   services.mpd = {

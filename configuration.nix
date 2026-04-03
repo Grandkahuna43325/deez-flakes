@@ -304,6 +304,13 @@
     };
   };
 
+  security.pam.services.login.pamModules = [
+    {
+      name = "pam_gnupg";
+      control = "optional";
+      module = "${pkgs.pam-gnupg}/lib/security/pam_gnupg.so";
+    }
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
