@@ -10,11 +10,17 @@
     };
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+
     # nix-ld.url = "github:Mic92/nix-ld";
     # nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, catppuccin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, catppuccin, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -42,35 +48,23 @@
           modules = [
             ./configuration.nix
             catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
+            # home-manager.nixosModules.home-manager
           ];
           specialArgs = { inherit inputs pkgsUnstable; };
         };
       };
       homeConfigurations = {
         grandkahuna43325 = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system}; # Ensure `pkgs` is properly set
-          modules = [
-            ./home.nix
-            catppuccin.homeModules.catppuccin
-          ];
+          inherit pkgs;
           extraSpecialArgs = {
+            inherit inputs;
             pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
+          modules = [
+            ./home/home.nix
+            catppuccin.homeModules.catppuccin
+          ];
         };
       };
-
-      #nix-ld
-      # nixosConfigurations.grandkahuna43325 = nixpkgs.lib.nixosSystem {
-      #   inherit system;
-      #   modules = [
-      #     # ... add this line to the rest of your configuration modules
-      #     nix-ld.nixosModules.nix-ld
-      #
-      #     # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld)
-      #     # to not collide with the nixpkgs version.
-      #     { programs.nix-ld.dev.enable = true; }
-      #   ];
-      # };
     };
 }

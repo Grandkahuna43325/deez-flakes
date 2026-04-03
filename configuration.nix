@@ -13,6 +13,9 @@
     ];
 
   nixpkgs.overlays = [
+    (final: prev: {
+      hyprland = inputs.hyprland.packages.${prev.system}.hyprland;
+    })
     (
       final: prev:
         let
@@ -79,7 +82,7 @@
     ddcci-driver
     xone
     xpadneo
-    (callPackage ./pkgs/xpad.nix { })
+    (callPackage ./home/pkgs/xpad.nix { })
     nvidia_x11
   ];
   services.udev.extraRules = ''
@@ -198,15 +201,15 @@
   };
 
   # Enable XDG Desktop Portal and required backends
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal
-    ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [
+      # xdg-desktop-portal-gtk
+      # xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-wlr
+      # xdg-desktop-portal
+  #   ];
+  # };
 
   users.extraUsers.grandkahuna43325.extraGroups = [ "audio" ];
 
@@ -304,13 +307,13 @@
     };
   };
 
-  security.pam.services.login.pamModules = [
-    {
-      name = "pam_gnupg";
-      control = "optional";
-      module = "${pkgs.pam-gnupg}/lib/security/pam_gnupg.so";
-    }
-  ];
+  # security.pam.services.login.pamModules = [
+  #   {
+  #     name = "pam_gnupg";
+  #     control = "optional";
+  #     module = "${pkgs.pam_gnupg}/lib/security/pam_gnupg.so";
+  #   }
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -480,6 +483,8 @@
     enable = true;
     # Whether to enable XWayland
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   programs.zsh.enable = true;

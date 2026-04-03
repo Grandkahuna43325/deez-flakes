@@ -5,6 +5,7 @@
   imports = [
     ./dev/bundle.nix
     ./pkgs/bundle.nix
+    ./wm/bundle.nix
   ];
 
   fonts.fontconfig.enable = true;
