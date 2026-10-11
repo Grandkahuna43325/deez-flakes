@@ -5,7 +5,7 @@ layout {
           format_left "{tabs}"
           format_right  "{command_git_branch} {datetime} {mode}"
 
-          hide_frame_for_single_pane "true"
+          // hide_frame_for_single_pane "true"
 
           mode_normal  "#[bg=blue] "
           mode_tmux    "#[bg=#ffc387] "

@@ -1,68 +1,44 @@
 {
-  description = "Grandkahuna's config";
+  description = "New flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
-    catppuccin.url = "github:catppuccin/nix/6247b46";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
-
-    # nix-ld.url = "github:Mic92/nix-ld";
-    # nix-ld.inputs.nixpkgs.follows = "nixpkgs";
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    artcraft.url = "github:grandkahuna43325/artcraft-nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, catppuccin, home-manager, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, zjstatus, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgsUnstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations = {
-        nixos = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            # { nixpkgs.config.allowUnfree = true; }
-          ];
-          specialArgs = { inherit inputs pkgsUnstable; };
-        };
-        grandkahuna43325 = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            catppuccin.nixosModules.catppuccin
-            # home-manager.nixosModules.home-manager
-          ];
-          specialArgs = { inherit inputs pkgsUnstable; };
-        };
+      homeConfigurations."grandkahuna43325" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home/home.nix ];
       };
-      homeConfigurations = {
-        grandkahuna43325 = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-          };
+      nixosConfigurations = {
+        grandkahuna43325 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           modules = [
-            ./home/home.nix
-            catppuccin.homeModules.catppuccin
+            ./configuration.nix
+            inputs.artcraft.nixosModules.default
+            { programs.artcraft.enable = true; }
           ];
         };
       };

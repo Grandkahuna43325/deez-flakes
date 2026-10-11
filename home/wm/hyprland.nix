@@ -4,6 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    configType = "hyprlang";
 
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
@@ -14,6 +15,16 @@
     ];
 
     settings = {
+      cursor = {
+        no_hardware_cursors = true;
+      };
+
+      env = [
+        "XCURSOR_THEME,Bibata-Modern-Classic"
+        "XCURSOR_SIZE,24"
+        "WLR_NO_HARDWARE_CURSORS,1"
+      ];
+
       # plugin.touch_gestures = {
       #   hyprgrass-bind = [
       #     ", edge:d:u, exec, wvkbd-toggle"
@@ -35,11 +46,12 @@
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "/usr/lib/polkit-kde-authentication-agent-1"
+        "hyprctl setcursor Bibata-Modern-Classic 24"
         "hyprpaper"
         "waybar"
         "dunst"
         "alacritty"
-        "firefox"
+        "zen"
         # "~/.config/hypr/background.sh";
       ];
 
@@ -109,7 +121,6 @@
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
       };
 
@@ -152,13 +163,7 @@
         "SUPER, Q, killactive"
         "SUPER, r, exec, wofi --show drun"
         "SUPER, p, exec, wofi-pass"
-
-        # Move between workspaces
-        "SUPER, H, movefocus, right"
-        "SUPER, L, movefocus, left"
-
-        # Move focused window
-        "SUPER, O, movetoworkspace, next"
+        "SUPER, s, exec, ~/.config/scripts/change_sound_output.sh"
 
         # Fullscreen mode
         "SUPER, F, fullscreen"

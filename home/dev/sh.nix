@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -10,7 +10,6 @@
     zsh-powerlevel10k
     zsh-syntax-highlighting
     zsh-history-substring-search
-    thefuck
     tldr
     feh
     devenv
@@ -21,7 +20,10 @@
     bottom
     httpie
     trash-cli
-    pkgs-unstable.posting
+    posting
+    busybox
+    sshfs
+    postgresql
 
     ueberzugpp
 
@@ -31,6 +33,14 @@
     oh-my-zsh
     alacritty
   ];
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    sshKeys = [
+      "6BA1914EFE25B292ABD7DEC9D4B6C226EE2E1374"
+    ];
+  };
 
   programs.ssh.matchBlocks = {
     "*.kfkorulczyk.pl" = {
@@ -52,12 +62,18 @@
     initContent = ''
       export MANPAGER="nvim +Man!"
       export MANWIDTH=999
+      unset SSH_AGENT_PID
+      if [ "''${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+        export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+      fi
+      gpgconf --launch gpg-agent
+      precmd() { print -Pn "\e]0;%1~\a" }
     '';
     envExtra = ''
       source ~/.env
       source ~/.p10k.zsh
-      source ~/.scripts/*
     '';
+
     shellAliases = {
       q = "exit";
       e = "cd";
@@ -71,6 +87,10 @@
       ls = "exa --all --long --inode  --ignore-glob='.git*'";
       z = "cd";
       rm = "trash-put";
+      mountssh = "
+      sshfs Grandkahuna43325@192.168.88.51:/mnt/pool/Personal ~/Personal && 
+      sshfs -o uid=$(id -u) -o gid=$(id -g) root@alpine-private:/root ~/remotes/alpine-private/
+      ";
     };
     plugins = [
       {
@@ -119,8 +139,10 @@
         "command-not-found"
         "docker"
         "gitfast"
-        "thefuck"
       ];
+      extraConfig = ''
+        DISABLE_AUTO_TITLE="true"
+      '';
     };
   };
 }

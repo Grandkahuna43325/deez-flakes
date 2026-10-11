@@ -1,28 +1,32 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     nixpkgs-fmt
     nil
-    pkgs-unstable.nodejs
+    nodejs
     go
     fd
     jq
     libxml2
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     docker-compose-language-service
     lua
     luajitPackages.luarocks
     luajitPackages.jsregexp
+    tree-sitter
     sqlite
-    lldb_17
-    jdk
+    gdb
+    #lldb_17
     jdt-language-server
     typescript
-    gradle
+    gradle_8
+    # openjdk17
+    openjdk21
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    JAVA_HOME = "${pkgs.openjdk21}/lib/openjdk";
   };
 }

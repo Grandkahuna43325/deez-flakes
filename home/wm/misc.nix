@@ -7,5 +7,6 @@
     pkgs.libnotify
     pkgs.waybar
     pkgs.brightnessctl
+    pkgs.hyprcursor
   ];
 }

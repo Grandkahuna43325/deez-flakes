@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -17,6 +17,13 @@
   home.username = "grandkahuna43325";
   home.homeDirectory = "/home/grandkahuna43325";
   nixpkgs.config.allowUnfree = true;
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   package = pkgs.bibata-cursors;
+  #   name = "Bibata-Modern-Classic";
+  #   size = 24;
+  # };
 
 
   # Home Manager can also manage your environment variables through
@@ -35,12 +42,13 @@
   #
   #  /etc/profiles/per-user/grandkahuna43325/etc/profile.d/hm-session-vars.sh
   #
-  catppuccin = {
-    flavor = "mocha";
-    enable = true;
-  };
+  # catppuccin = {
+  #   flavor = "mocha";
+  #   enable = true;
+  # };
   programs.element-desktop.enable = true;
 
   programs.home-manager.enable = true;
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }
+

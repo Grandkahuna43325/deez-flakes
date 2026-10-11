@@ -1,10 +1,10 @@
-{pkgs, pkgs-unstable, ...}:
-
+{pkgs, ...}:
 {
   home.packages = with pkgs; [
-    pkgs-unstable.scrcpy
+    scrcpy
     android-tools
     gnirehtet
   ];
+
 }
 

@@ -1,8 +1,8 @@
-{configs, pkgs, pkgs-unstable, ...}:
+{configs, pkgs, ...}:
 
 {
   home.packages = with pkgs; [
-    # pkgs-unstable.vmware-workstation
+    vmware-workstation
     libvirt
     virt-manager
     qemu

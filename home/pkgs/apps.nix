@@ -1,4 +1,4 @@
-{configs, pkgs, pkgs-unstable, ...}:
+{configs, pkgs, ...}:
 
 {
   home.packages = with pkgs; [
@@ -6,7 +6,7 @@
     git
     pavucontrol
     mpv
-    pkgs-unstable.yt-dlp
+    yt-dlp
     (pkgs.python3.withPackages (ps: [ ps.mutagen ] ))
     qbittorrent
     libreoffice
@@ -17,10 +17,11 @@
     xournalpp
     drawio
     moonlight-qt
-    pkgs-unstable.vesktop
-    pkgs-unstable.figma-linux
-    pkgs-unstable.gimp3
-    pkgs-unstable.caprine
+    telegram-desktop
+    vesktop
+    figma-linux
+    gimp3
+    caprine
   ];
 
   services.mpd = {
@@ -39,9 +40,11 @@
   programs.gh.enable = true;
   programs.git = {
     enable = true;
-    userName = "Grandkahuna43325";
-    userEmail = "kf.korulczyk@gmail.com";
-    extraConfig.init.defaultBranch = "main";
+    settings = {
+      user.name = "Grandkahuna43325";
+      user.email = "kf.korulczyk@gmail.com";
+      init.defaultBranch = "main";
+    };
   };
 }
 
