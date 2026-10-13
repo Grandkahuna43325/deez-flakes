@@ -67,7 +67,16 @@
         export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
       fi
       gpgconf --launch gpg-agent
-      precmd() { print -Pn "\e]0;%1~\a" }
+
+      add-zsh-hook precmd set_title_dir
+      set_title_dir() {
+        print -Pn "\e]0;%1~\a"
+      }
+
+      add-zsh-hook preexec set_title_cmd
+      set_title_cmd() {
+        print -Pn "\e]0;$1\a"
+      }
     '';
     envExtra = ''
       source ~/.env
